@@ -5,10 +5,12 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { AuthRoutingModule } from './auth-routing.module';
+import { AdminRegisterComponent } from './admin-register/admin-register.component';
 @NgModule({
   declarations: [
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    AdminRegisterComponent
     
   ],
   imports: [
