@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col mx-4 mt-5">
+
+        <h2 class="text-center">Meals </h2>
+        <div class="text-input">
+            <input type="text" id="input1" placeholder="Try typing something in here!">
+            <label class="input1" id="lable1"> </label>
+        </div>
+
+        <div class="text-input">
+            <input type="text" id="input2" placeholder="Try typing something in here!">
+            <label class="input2" id="lable2"></label>
+        </div>
+
+        <div class="text-input">
+            <input type="text" id="input3" placeholder="Try typing something in here!">
+            <label class="input3" id="lable3"></label>
+        </div>
+
+    </div>
+    <div class="col mx-4 mt-5">
+        <select name="catogry" (change)="ChangeCatigory()" id="catogry">
+
+            <option selected disabled value="JLC">التصنيف</option>
+            <option value="JLC">الإفطار</option>
+            <option value="Zenith">الغداء</option>
+            <option value="Cartier">العشاء</option>
+
+        </select>
+        <select name=" Meals"  id="Meals">
+
+            <option selected disabled value="JLC">تحديد الوجبة</option>
+            <option *ngFor="let item of Meals" value="JLC">{{item}}</option>
+
+        </select>
+
+        <select name="All Meals" (change)="AddMealToText()"  id="AllMeals">
+
+            <option selected disabled value="JLC">اختار الكلمات المساعدة</option>
+            <option *ngFor="let item of SubMeals" value="JLC">{{item}}</option>
+
+        </select>
+    </div>
+
+</div>

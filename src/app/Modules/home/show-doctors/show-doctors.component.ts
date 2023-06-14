@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { HomeServicesService } from '../home-services.service';
 
@@ -7,9 +7,18 @@ import { HomeServicesService } from '../home-services.service';
   templateUrl: './show-doctors.component.html',
   styleUrls: ['./show-doctors.component.scss']
 })
-export class ShowDoctorsComponent {
+export class ShowDoctorsComponent implements OnInit {
+  msg!:string;
   constructor(private homeService: HomeServicesService) { }
-  close() {
+  ngOnInit() {
+    this.msg="asd";
+   this.sayhi()
+   
+  }
+  sayhi(){
+    console.log("hoiiiiiiiiiiiiiiii")
+
+  }  close() {
     this.homeService.CloseDoctors()
   }
 }

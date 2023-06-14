@@ -1,4 +1,4 @@
-<div class="fixed-paragraph" id="hideP">
+<div class="fixed-paragraph" id="hideP" *ngIf="isPatient.value ==1">
   اعرف دكتورك
 
   <button class="btn btnB" (click)="ShowDoctors()">اعرف دكتورك</button>
@@ -87,7 +87,7 @@
   </div>
 </div>
 
-<div class="row row-cols-1 row-cols-md-4 mx-3 g-3">
+<!-- <div class="row row-cols-1 row-cols-md-4 mx-3 g-3">
   
   <div class="col">
     <div class="card ">
@@ -149,15 +149,13 @@
     </div>
   </div>
 </div>
-</div>
+</div> -->
 
 
 <div class="row my-5 paragraph" style="text-align: right;">
 
-  <div class="col-md-6">
-    <img src="/assets/hands-hold-red-apple.jpg"   style="width: auto; height: auto;" loading="lazy" alt="apple" name="apple" class="img-fluid">
-  </div>
-  <div class="col-md-6 py-5" style="padding-top: 20%;">
+ 
+  <div class="col-md-12 py-5" style="padding-top: 20%;">
     <p class="">يوفر الموقع العديد من الخدمات والنصائح العملية والبرامج الغذائية المناسبة لكل فرد بناءً على حالته الصحية ومتطلباته الغذائية الفردية يتيح الموقع للمستخدمين إجراء تقييم شامل لحالتهم الصحية والغذائية ، وذلك من خلال الإجابة على بعض الأسئلة المتعلقة بنمط الحياة والغذاء والأمراض المزمنة والأدوية المستخدمة. كما يقدم الموقع خدمات الاستشارة الغذائية عبر الإنترنت مع أطباء متخصصين في التغذية والسمنة، ويمكن للمستخدمين الاستفسار عن أي مسألة تخص التغذية والسمنة والحصول على الإرشادات المناسبة والنصائح الغذائية المناسبة لحالتهم الصحية بشكل عام، يهدف الموقع إلى توعية الناس بأهمية التغذية الصحية والحفاظ على وزن صحي، ويعمل على تحسين جودة الحياة للأشخاص الذين يعانون من مشاكل الوزن والسمنة</p>
   </div>
 

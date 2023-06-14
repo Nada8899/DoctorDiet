@@ -6,19 +6,30 @@ import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
+import { HttpClientModule } from '@angular/common/http';
+;
+
 @NgModule({
   declarations: [
     RegisterComponent,
     LoginComponent,
-    AdminRegisterComponent
-    
+    AdminRegisterComponent,
+
+
+  ],
+  providers: [
+
+
   ],
   imports: [
     AuthRoutingModule,
     CommonModule,
     RouterLink,
     ReactiveFormsModule,
+    HttpClientModule,
+
 
   ]
+
 })
 export class AuthModule { }

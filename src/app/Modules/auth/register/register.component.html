@@ -17,7 +17,7 @@
                     <div class="input-group">
 
                       <input type="text" id="userName"
-                        style="direction: rtl; border:none; border-bottom: 1px solid gray;" formControlName="userName"
+                        style="direction: rtl;" formControlName="userName"
                         class="form-control text-center" placeholder="أدخل اسم المستخدم مثلا Abc0" />
                       <label for="userName" class="input-group-text fa-lg">اسم المستخدم &nbsp;
                         <i class="fa-solid fa-circle-user" style="color:#163A66;"></i>
@@ -42,7 +42,7 @@
                   <div class="form-outline">
                     <div class="input-group">
                       <input type="text" id="fullName" formControlName="fullName"
-                        style="direction: rtl; border:none; border-bottom: 1px solid gray;"
+                        style="direction: rtl; "
                         class="form-control text-center" placeholder="أدخل الأسم كامل " />
                       <label for="fullName" class="input-group-text">الاسم كامل &nbsp;
                         <i class="fa-solid fa-user" style="color:#163A66;"></i>
@@ -66,7 +66,7 @@
                   <div class="form-outline">
                     <div class="input-group">
                       <input type="email" id="email" formControlName="email"
-                        style="direction: rtl; border:none; border-bottom: 1px solid gray;" placeholder="Abc0@gmail.com"
+                        style="direction: rtl; " placeholder="Abc0@gmail.com"
                         class="form-control text-center" />
                       <label for="email" class="input-group-text"> البريد الالكتروني &nbsp;
                         <i class="fa-solid fa-envelope fa-lg" style="color:#163A66;"></i>
@@ -83,30 +83,34 @@
                     </div>
                   </div>
                 </div>
+       
+
+
+
                 <div class="col-md-6 my-4">
                   <div class="form-outline">
                     <div class="input-group">
-                      <input type="number" id="phoneNumber" formControlName="phoneNumber"
-                        style="direction: rtl; border:none; border-bottom: 1px solid gray;"
+                      <input type="text" id="phoneNumber" formControlName="phoneNumber"
+                        style="direction: rtl; "
                         class="form-control text-center" placeholder="010000000000" />
-
+                
                       <label for="phoneNumber" class="input-group-text">رقم تليفونك &nbsp;
                         <i class="fa-solid fa-mobile fa-lg" style="color:#163A66;"></i>
                       </label>
                     </div>
-
-
-                    <div *ngIf="phoneNumber?.errors != null && phoneNumber?.touched">
+                
+                    <div *ngIf="phoneNumber?.invalid && phoneNumber?.touched">
                       <p *ngIf="phoneNumber?.errors?.['required']" class="text-danger">
                         برجاء ادخال رقم الهاتف
                       </p>
                       <p *ngIf="phoneNumber?.errors?.['pattern']" class="text-danger">
-                        رقم الهاتف مكون من 11 رقم
+                        رقم الهاتف مكون من 11 رقم ويبدأ بـ 010 أو 011 أو 012 أو 015
                       </p>
                     </div>
+                    
                   </div>
                 </div>
-
+                
               </div>
 
 
@@ -114,7 +118,7 @@
                 <div class="form-outline col-md-6  my-4">
                   <div class="input-group">
                     <input type="date" min="15" id="age" formControlName="age"
-                      style="direction: rtl; border:none; border-bottom: 1px solid gray;"
+                      style="direction: rtl; "
                       class="form-control text-center" placeholder="35" />
                     <label for="age" class="input-group-text">تاريخ ميلادك &nbsp;
                       <i class="fa fa-solid fa-0 fa-xl " style="color:#163A66;"></i>
@@ -133,7 +137,7 @@
                 <div class="form-outline col-md-6 my-4">
                   <div class="input-group">
                     <input type="number" id="height" formControlName="height" style="direction: rtl;
-                      border:none; border-bottom: 1px solid gray;" placeholder="  175cm "
+                     " placeholder="  175cm "
                       class="form-control text-center" />
                     <span class="input-group-text">الطول &nbsp;
                       <i class="fa-solid fa-person fa-lg" style="color:#163A66;"></i>
@@ -152,8 +156,7 @@
               <div class="row">
                 <div class="form-outline col-md-6 my-4">
                   <div class="input-group">
-                    <input type="number" id="weight" formControlName="weight" style="direction: rtl; border:none;
-                   border-bottom: 1px solid gray;" class="form-control text-center" placeholder="75 كيلو" />
+                    <input type="number" id="weight" formControlName="weight" style="direction: rtl; " class="form-control text-center" placeholder="75 كيلو" />
                     <label for="weight" class="input-group-text">الوزن &nbsp;
                       <i class="fa-solid fa-weight-scale fa-lg" style="color:#163A66;"></i>
                     </label>
@@ -169,7 +172,7 @@
                 <div class="form-outline col-md-6 my-4">
                   <div class="input-group">
                     <input type="text" id="chronicDisease" formControlName="chronicDisease"
-                      style="direction: rtl; border:none; border-bottom: 1px solid gray;"
+                      style="direction: rtl; "
                       class="form-control text-center" placeholder="اذكر مرض مزمن اذا لديك" />
                     <label for="chronicDisease" class="input-group-text">وجود مرض &nbsp;
                       <i class="fa-solid fa-question fa-lg" style="color:#163A66;"></i>
@@ -182,20 +185,20 @@
               </div>
 
 
-
-              <div class="form-outline col-md-12 my-4">
+             <div class="row">
+              <div class="form-outline col-md-6 my-4">
 
                 <div class="cont input-group">
 
                   <select id="mainDropdown" formControlName="Gender" style="direction: rtl;
-                  border:none; border-bottom: 1px solid gray;" class="form-control text-center">
+                  " class="form-control text-center">
 
                     <option value="">
 
                       حدد النوع
                     </option>
-                    <option value="male">ذكر</option>
-                    <option value="female">أنثي</option>
+                    <option value="Male">ذكر</option>
+                    <option value="Female">أنثي</option>
 
                   </select>
 
@@ -212,6 +215,32 @@
 
 
               </div>
+
+                 <div class="form-outline col-md-6 my-4">
+
+
+                  <div class="input-group">
+                    <input type="file" id="formFile" formControlName="ProfileImage"
+                        style="direction: rtl; "
+                        class="form-control text-center "
+                        (change)="onSelectFile($event)"
+                       
+                        />
+                    <label for="formFile" class="input-group-text">  &nbsp;
+                        
+                        <i class="fa-solid fa-images" style="color:#163A66;"></i>
+                    </label>
+                </div>
+                <!-- -->
+                <div *ngIf="ProfileImage?.errors != null && ProfileImage?.touched">
+                    <p *ngIf="ProfileImage?.errors?.['required']" class="text-danger">
+                        يجب ادخال صورة البروفايل
+                    </p>
+                </div>
+                 </div>
+
+              
+            </div>
               <div class="row">
                 <div class="form-outline check  col-md-6 my-4">
 
@@ -244,8 +273,6 @@
                   <div class="cont mb-3">
                     <i class="fa-solid fa-bullseye fa-xl  mt-2" style="color:#163A66; "></i>
                     <p class="form-label fw-bold  " style="font-size: x-large;color:#163A66; ">الهدف</p>
-
-
                   </div>
                   <div formGroupName="Goal">
 
@@ -313,15 +340,11 @@
                 </div>
               </div>
 
-
-
-
-
               <div class="row">
                 <div class="form-outline mb-5">
                   <div class="input-group">
                     <input type="password" id="pass" name="password" formControlName="password" style="direction: rtl;
-                      border: none; border-bottom: 1px solid gray;" class="form-control text-center"
+                      " class="form-control text-center"
                       placeholder=" ادخل كلمه السر" (input)="password?.markAsTouched()" />
                     <label for="pass" class="input-group-text">كلمه السر &nbsp;
                       <i class="fa fa-solid fa-lock fa-lg" style="color:#163A66"></i>
@@ -346,7 +369,7 @@
                   <div class="input-group">
                     <input  [class.is-invalid]="confirmPassword?.invalid && confirmPassword?.touched"
                     type="password" name="confirmPassword" id="cp" formControlName="confirmPassword"
-                      style="direction: rtl; border:none; border-bottom: 1px solid gray;"
+                      style="direction: rtl; "
                       class="form-control text-center" placeholder="تأكيد كلمة السر">
 
                    
@@ -369,6 +392,11 @@
 
               </div>
 
+              <div class="my-5">
+                <div *ngIf="error" class="alert alert-danger m-2">
+                  {{error}}
+              </div>
+              </div>
               <div>
                 <button type="submit" id="loginBtn" class="btn btnB btn-block mb-4 mt-4"
                   [disabled]="RegistrationForm.invalid" >

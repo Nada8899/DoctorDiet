@@ -119,7 +119,7 @@ paragraph:hover {
 
 .landing {
     min-height: 100vh;
-    background-image: url(../../../../assets/backgrd.webp);
+    background-image: url(../../../../assets/background.jpg);
     background-position: center center;
     background-size: cover;
     background-color: #1f2021;
@@ -130,7 +130,7 @@ paragraph:hover {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgb(0 0 0 /60%);
+    background-color: rgba(0, 0, 0, 0.025);
     top: 0;
     left: 0;
 }
@@ -140,7 +140,7 @@ paragraph:hover {
     right: 0;
     top: 50%;
     transform: translateY(-10%);
-    background-color: rgba(249, 249, 249, 0.817);
+    background-color: rgba(147, 207, 219, 0.307);
     padding: 50px;
     width: 35%;
     color: black;
@@ -185,8 +185,8 @@ paragraph:hover {
 }
 
 .btnB {
-    background-color: #0f62c6;
-    color: #ccc;
+    background-color: #264572;
+    color: #ffffff;
 }
 
 

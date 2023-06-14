@@ -13,28 +13,30 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthRoutingModule } from './Modules/auth/auth-routing.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    
-],
+
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     HomeModule,
-   AuthModule,
+    AuthModule,
     UserModule,
     DoctorModule,
     SharedModule,
     ReactiveFormsModule,
     AuthRoutingModule,
     AuthModule,
-    
+
     RouterLink,
-          BrowserAnimationsModule,
+    BrowserAnimationsModule,
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
   providers: [],
   bootstrap: [AppComponent]
 })

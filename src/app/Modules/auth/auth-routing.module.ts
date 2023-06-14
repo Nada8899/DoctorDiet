@@ -7,6 +7,7 @@ import { AdminRegisterComponent } from './admin-register/admin-register.componen
 
 
 
+
 const routes: Routes = [
  
   { path: 'Login',component:LoginComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
+  
   exports: [RouterModule]
 })
 export class AuthRoutingModule { }
