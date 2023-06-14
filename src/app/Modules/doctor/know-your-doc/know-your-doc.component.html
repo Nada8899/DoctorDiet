@@ -7,7 +7,7 @@
       <div class="col-md-8">
         <div class="card-body">
           <p class="card-title mt-3" style="color:#163A66; font-size: 2.0rem; font-weight: bolder; text-align: right;">
-            دكتوره أسماء أمين</p>
+            {{doctor.fullName}} دكتوره </p>
           <div class="row">
             <div style="text-align: right; " class="col">
               <i class="fa-sharp fa-solid fa-star " style="color: #f7fb23;"></i>
@@ -22,25 +22,21 @@
           <div dir="rtl">
 
             <div class="card-text text-end text-md-end" style="color:#163A66; font-size: 1.1rem;">
+              <i class="fa-sharp fa-solid fa-stethoscope"></i>
+              <span style="color:#163A66; font-size: 1.5rem;">&nbsp; {{doctor.specialization}}</span>
 
-              <i class="fa-sharp fa-solid fa-stethoscope">&nbsp;حاصلة على دبلومة
-                التغذية العلاجية المعتمدة من الجمعية
-                الأمريكية
-                للتعليم الطبي المستم </i>
+            </div>
+            <br>
+            <div class="card-text text-end text-md-end " style="color:#163A66; font-size: 1.1rem;">
+              <i class="fas fa-notes-medical">&nbsp; </i>
+              <span style="color:#163A66; font-size: 1.5rem;">&nbsp; {{doctor.specialization}}</span>
             </div>
             <br>
             <div class="card-text text-end text-md-end" style="color:#163A66; font-size: 1.1rem;">
 
-              <i class="fas fa-notes-medical">&nbsp;علاج السمنة والنحافة والدهون الموضوعية
-                التغذية العلاجية لمرضى السكر والضغط وقصور الغدة الدرقية
-                والأورام متابعة ما بعد عمليات التكميم وتحويل المسار</i>
-            </div>
-            <br>
-            <div class="card-text text-end text-md-end" style="color:#163A66; font-size: 1.1rem;">
+              <i class="fa fa-light fa-location-dot"></i>
+              <span style="color:#163A66; font-size: 1.5rem;">&nbsp; {{doctor.location}}</span>
 
-              <i class="fa fa-light fa-location-dot">&nbsp;الشرقية بلبيس شارع أبوبكر الصديق-أمام
-                مطعم منصور
-                بجوار صيدلية القادسية أعلى مقلة زويد </i>
             </div>
           </div>
 
@@ -70,19 +66,19 @@
               <i id="i5" class=" fa-solid fa-phone-volume ">&nbsp;&nbsp;يرجي التواصل مع الدكتوره لدفع الاشتراك </i>
               <br>
               <span>
-                <br>
-                ٠١٢٠٠١٧٠٦٥٠
-                <br>
-                <br>
-                <br>
-                <br>
-                ٠١٢٠٣٢٣٢٩٤٨
-                <br>
-                <br>
-                <br>
-                <br>
-                ٠١٠٢٢١٤٠٢٩١
-                <br>
+                <div *ngFor="let contact of doctor.contactInfo">
+
+                  <br>
+                  <br>
+                  <span style="text-align: right; color:#163A66; line-height: .5;  font-size: 1.3rem;">
+                    {{contact.contactInfo}}
+                  </span>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                </div>
+
               </span>
             </p>
 
@@ -93,7 +89,8 @@
 
 
       <div class="col-md-4 ">
-        <img src="/assets/asmaa.webp" loading="lazy" class="img-fluid rounded " name="asm"    style="width: auto; height: auto;" alt="...">
+        <img src="/assets/asmaa.webp" loading="lazy" class="img-fluid rounded " name="asm"
+          style="width: auto; height: auto;" alt="...">
       </div>
 
     </div>
