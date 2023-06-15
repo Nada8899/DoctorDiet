@@ -1,12 +1,35 @@
 body {
-    font-family: 'Readex Pro', sans-serif;
-    overflow-x: hidden;
+   overflow-x: hidden;
     background-color: #a51c1c;
+    font-family: 'El Messiri', sans-serif;
 }
 
 .container-fluid {
     padding: 0;
 
+}
+#portfolio{
+    background-image: url(../../../../assets/super.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 64%;
+    background-position: center;
+}
+.row{
+    margin-top: 7%;
+}
+.card{
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.card:hover{
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;   transition: .3s all ease-in-out;
+     
+}
+h5{
+    font-family: 'El Messiri', sans-serif;
+}
+h1{
+    font-family: 'El Messiri', sans-serif;
 }
 
 @media screen and (max-width: 967px) {

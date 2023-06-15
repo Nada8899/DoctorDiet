@@ -23,7 +23,7 @@ nav ul li a{
   display: block;
   text-decoration: none;
   color: #0f62c6;
-  padding: 10px 10px;
+
   font-size: 18px;
   font-weight: bold;
   transition:.3s;
@@ -56,7 +56,23 @@ background-color: white;
   font-size: 14px; 
   padding: 0.3rem 0.7rem; 
 }
-
+select{
+  display: block;
+  text-decoration: none;
+  color: #0f62c6;
+  padding: 10px 10px;
+  font-size: 18px;
+  font-weight: bold;
+  transition:.3s;
+  position: relative;
+  z-index: 2;
+}
+select option {
+  /* Styling for the options */
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 8px;
+}
 @media screen and (max-width: 767px) {
   .navbar {
     height: auto; 
@@ -73,7 +89,7 @@ background-color: white;
   }
 }
 .stop {
-  margin-left: 22%;  
+  margin-left: 33%;  
   }
 .stop1 {
   margin-left: 38%;  

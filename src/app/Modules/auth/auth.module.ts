@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DoctorRegisterComponent } from './doctor-register/doctor-register.component';
 ;
 
 @NgModule({
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     LoginComponent,
     AdminRegisterComponent,
+    DoctorRegisterComponent,
 
 
   ],

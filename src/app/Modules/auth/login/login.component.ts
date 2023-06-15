@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PasswordValidator } from '../CustomValidator/PassValidator';
 import { LoginService } from '../Services/login.service';
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -67,7 +69,18 @@ export class LoginComponent implements OnInit {
 
     }
   }
+ show() {
+    var x = document.getElementById("password")as HTMLInputElement;
+    $("#eye").toggleClass('fa-eye fa-eye-slash');
+   if (x.type == "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+      console.log("pass")
+    }
+  }
 
+  
 
 }
 

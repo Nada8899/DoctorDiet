@@ -54,7 +54,7 @@
               </span>
 
 
-              <span id="loginBtn" class="btn btnB" (click)="change()"> اشترك
+              <span id="loginBtn" class="btn btnB" (click)="change(doctor.id)"> اشترك
                 الان&nbsp;!</span>
 
             </div>
@@ -89,7 +89,7 @@
 
 
       <div class="col-md-4 ">
-        <img src="/assets/asmaa.webp" loading="lazy" class="img-fluid rounded " name="asm"
+        <img src='data:image/png;base64,{{doctor.profileImage}}' loading="lazy" class="img-fluid rounded " name="asm"
           style="width: auto; height: auto;" alt="...">
       </div>
 

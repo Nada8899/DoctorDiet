@@ -10,14 +10,19 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class NavComponent implements OnInit {
   isLoggedIn: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+
   isLogin: boolean = false;
   public isPatient: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   public isDoctor: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   public isAdmin: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   testToken!: any;
-
+  doctor:string="";
+  patient:string="";
   constructor(private _LoginService: LoginService, private _Router: Router) { }
   ngOnInit(): void {
+   this.doctor ="/auth/DoctorRegister";
+  this.patient="/auth/Register"
+  console.log(this.doctor)
     const userToken: string | null = localStorage.getItem('userToken');
 
     if (userToken !== null && userToken !== 'null') {
@@ -27,9 +32,7 @@ export class NavComponent implements OnInit {
       this.isLoggedIn.next(0);
       this._LoginService.userData.next(null); // Clear the user token in the service
     }
-    
-
-       console.log("Length",localStorage.length )
+           console.log("Length",localStorage.length )
     
       this.testToken = JSON.stringify(localStorage.getItem('userToken'));
            console.log("testtoken",this.testToken )
@@ -69,7 +72,7 @@ export class NavComponent implements OnInit {
         }
       })
   
-
+      
   }
 
 
@@ -80,5 +83,10 @@ export class NavComponent implements OnInit {
     this._Router.navigate(['home']);
     
 
+  }
+
+  selectrouter(event: Event) {
+    const selectedRoute = (event.target as HTMLSelectElement).value;
+    this._Router.navigateByUrl(selectedRoute);
   }
 }

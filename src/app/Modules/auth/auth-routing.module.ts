@@ -4,6 +4,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
 import { AdminRegisterComponent } from './admin-register/admin-register.component';
+import { DoctorRegisterComponent } from './doctor-register/doctor-register.component';
 
 
 
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'Login',component:LoginComponent},
   { path: 'Register',component:RegisterComponent },
   { path: 'AdminRegister',component:AdminRegisterComponent },
+  { path: 'DoctorRegister',component:DoctorRegisterComponent },
  
 ];
 
