@@ -20,6 +20,11 @@ export class DoctorService {
   Subscribe(Connect: IConnect): Observable<IConnect> {
     return this._http.post<IConnect>(`http://localhost:5268/api/Patient/Subscribtion`, Connect);
   }
+  
+  addPlan(data: object): Observable<any> {
+    return this._http.post<IConnect>(`http://localhost:5268/api/Plan`, data);
+  }
+
 
 
 }

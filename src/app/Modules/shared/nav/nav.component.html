@@ -33,7 +33,7 @@
 
         <li class="nav-item active" style="direction: rtl;" *ngIf="isLoggedIn?.value !== 1">
           <select (change)="selectrouter($event)">
-            <option >التسجيل</option>
+            <!-- <option >{{'Login'|translate}}</option> -->
             <option value="/auth/Register">تسجيل مريض</option>
             <option value="/auth/DoctorRegister">تسجيل دكتور</option>
           </select>

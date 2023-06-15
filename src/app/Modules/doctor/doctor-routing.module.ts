@@ -18,7 +18,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 const routes: Routes = [
 
 
-  { path: 'KD', component: KnowYourDocComponent },
+  { path: 'KnowDoctor/:id', component: KnowYourDocComponent },
   {
     path: 'dash', component: MainComponent,
     children: [

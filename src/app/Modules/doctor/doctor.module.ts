@@ -15,6 +15,7 @@ import { PlansComponent } from './plans/plans.component';
 import { PlanDashComponent } from './plan-dash/plan-dash.component';
 import { TodayMealsComponent } from './today-meals/today-meals.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { PatientDetailsComponent } from './patient-details/patient-details.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     PlansComponent,
     PlanDashComponent,
     TodayMealsComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    PatientDetailsComponent
   ],
   imports: [
     DoctorRoutingModule,

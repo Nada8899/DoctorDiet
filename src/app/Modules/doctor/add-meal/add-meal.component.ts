@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import 'bs-custom-file-input';
+
 declare const bsCustomFileInput: any;
 @Component({
   selector: 'app-add-meal',

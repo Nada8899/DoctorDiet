@@ -125,6 +125,7 @@ export class RegisterComponent {
       formData.append('Height', RegistrationForm.get("height").value);
       formData.append('Email', RegistrationForm.get("email").value);
       formData.append('Password', RegistrationForm.get("password").value);
+      formData.append('phoneNumber', RegistrationForm.get("phoneNumber").value);
       formData.append('ConfirmPassword', RegistrationForm.get("confirmPassword").value);
       formData.append('ProfileImage', this.selectedFile,this.selectedFile.name);
 
@@ -161,7 +162,7 @@ export class RegisterComponent {
           console.log(response)
           if (response.message == 'Success') {
             console.log("Recored Added")
-            this._route.navigate(['Login']);
+            this._route.navigate(['/auth/Login']);
 
           }
           else {

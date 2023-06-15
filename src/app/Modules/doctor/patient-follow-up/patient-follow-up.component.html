@@ -1,53 +1,21 @@
-<div class="row my-5">
-    <div class="card box-shadow table-responsive">
-      <h4
-        style="margin-bottom: 1.5rem; text-align: center; padding-top: 2%"
-        class="fontColor"
-      >
-        طلبات الاشتراك
-      </h4>
-      <table class="table table-bordered table-hover text-center border">
-        <th class="border">الحالة</th>
-        <th class="border">رقم التليفون</th>
-        <th class="border">البريد الالكتروني</th>
-        <th class="border">نوع الخطه</th>
-        <th class="border">اسم المريض</th>
-        <tr class="border">
-          <td class="border">
-            زيادة وزن
-          </td>
-          <td class="border">010000000000</td>
-          <td class="border">ibrahimrabah25@gmail.con</td>
-          <td class="border">خطه أ</td>
-          <td class="border">رباح ابراهيم</td>
-        </tr>
-        <tr class="border">
-          <td class="border">
-            زيادة وزن
-          </td>
-          <td class="border">010000000000</td>
-          <td class="border">ibrahimrabah25@gmail.con</td>
-          <td class="border">خطه أ</td>
-          <td class="border">رباح ابراهيم</td>
-        </tr>
-        <tr class="border">
-          <td class="border">
-            زيادة وزن
-          </td>
-          <td class="border">010000000000</td>
-          <td class="border">ibrahimrabah25@gmail.con</td>
-          <td class="border">خطه أ</td>
-          <td class="border">رباح ابراهيم</td>
-        </tr>
-        <tr class="border">
-          <td class="border">
-            زيادة وزن
-          </td>
-          <td class="border">010000000000</td>
-          <td class="border">ibrahimrabah25@gmail.con</td>
-          <td class="border">خطه أ</td>
-          <td class="border">رباح ابراهيم</td>
-        </tr>
-      </table>
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col" *ngFor="let patient of PatientList">
+          <div class="profile-card-4 card h-100 text-center w-75" >
+              <img src='data:image/png;base64,{{patient.profileImage}}' class="img" style="height: 200px;" >
+              <div class="profile-content">
+                  <div class="profile-name">{{patient.fullName}}</div> 
+                  <h4 class="card-title text-start " ><i class="fa-solid fa-link px-2 " >
+                  </i><a class="link-underline-primary">{{patient.email}}</a></h4>
+                  <h4 class="card-title text-start " ><i class="fa-solid fa-phone px-2"></i>
+                      {{patient.phoneNumber}}</h4>
+                   <div class="text-start">
+                      <i class="fa-solid fa-bullseye px-2"></i>
+                      <button type="button" *ngFor="let item of patient.goal" class="btn btn-outline-dark me-3" disabled>
+                          {{item.name}}</button>
+                  </div>
+              </div>
+          </div>
+      </div>
     </div>
-  </div>
+</div>

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IMeal } from '../Interface/IMeal';
+import { IPlan } from '../Interface/IPlan';
 
 @Component({
   selector: 'app-add-plan',
@@ -7,7 +10,42 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-plan.component.scss']
 })
 export class AddPlanComponent {
-  constructor(private router: Router) {}
+MealList : IMeal[] = [];
+myMeal! : IMeal
+myPlan!:IPlan;
+  constructor(private router: Router, private formBuilder: FormBuilder) { }
+
+  PlanForm = this.formBuilder.group({
+    duration: ['', Validators.required],
+    CaloriesTO: ['', Validators.required],
+    CaloriesFrom: ['', [Validators.required]],
+
+  });
+  MealForm = this.formBuilder.group({
+    Basic: ['', [Validators.required]],
+    substitute1: ['', [Validators.required]],
+    substitute2: ['', [Validators.required]],
+  });
+
+  get duration() {
+    return this.PlanForm.get('duration');
+  }
+  get CaloriesTO() {
+    return this.PlanForm.get('CaloriesTO');
+  }
+  get CaloriesFrom() {
+    return this.PlanForm.get('CaloriesFrom');
+  }
+  get Basic() {
+    return this.PlanForm.get('Basic');
+  }
+  get substitute1() {
+    return this.PlanForm.get('substitute1');
+  }
+  get substitute2() {
+    return this.PlanForm.get('substitute2');
+  }
+
 
   ChangeCatigory() {
     var catogry = document.getElementById("catogry") as HTMLSelectElement;
@@ -22,26 +60,34 @@ export class AddPlanComponent {
 
   }
   AddMealToText() {
-
-    var catogry = document.getElementById("Meals") as HTMLSelectElement;
-    const Selectoption = catogry.options[catogry.selectedIndex].text;
-    var Meals = document.getElementById("AllMeals") as HTMLSelectElement;
-    const SelectMeal = Meals.options[Meals.selectedIndex].text;
-    if (Selectoption == "الاساسية") {
-      var input1 = document.getElementById("input1") as HTMLInputElement;
-      input1.value += SelectMeal + "+";
-    } else if (Selectoption == "1 البديل") {
-      var input2 = document.getElementById("input2") as HTMLInputElement;
-      input2.value += SelectMeal + '+';
+    const catogry = document.getElementById("Meals") as HTMLSelectElement;
+    const selectOption = catogry.options[catogry.selectedIndex].text;
+    const meals = document.getElementById("AllMeals") as HTMLSelectElement;
+    const selectMeal = meals.options[meals.selectedIndex].text;
+    const input3 = this.MealForm.get('substitute2');
+    const input2 = this.MealForm.get('substitute1');
+    const input1 = this.MealForm.get('Basic');
+  
+    if (selectOption == "الاساسية") {
+      input1?.setValue(input1.value + selectMeal + "+");
+    } else if (selectOption == "1 البديل") {
+      input2?.setValue(input2.value + selectMeal + '+');
     } else {
-      var input3 = document.getElementById("input3") as HTMLInputElement;
-      input3.value += SelectMeal + '+';
+      input3?.setValue(input3.value + selectMeal + '+');
     }
-
   }
+  
 
+addPlan(PlanForm:any){
 
+  console.log(PlanForm.value)
+}
+AddMeal(MealForm:any){
+ console.log(MealForm.value)
+ this.MealList.push(this.myMeal)
+ console.log("mealList",MealForm.value)
+}
 
-  Meals = ["الاساسية",  "1 البديل", "البديل 2"];
-  SubMeals = ["فراخ", "لحم", "لبن", "فاكهة", "بيض", "أرز"]
+  Meals = ["الاساسية", "1 البديل", "البديل 2"];
+  SubMeals = [" فراخ مسلوقه"  , "لحم", "لبن", "فاكهة", "بيض", "أرز","مكرونه","زبادي", "سمك","سلطه","رايب","كرواسون","فراخ مشويه","محشي","لسان عصفور","عصير طبيعي"]
 }

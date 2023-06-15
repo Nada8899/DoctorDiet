@@ -44,6 +44,9 @@ export class DoctorRegisterComponent {
     return this.DoctorRegisterForm.get('Location');
   }
 
+  get PhoneNumber(){
+    return this.DoctorRegisterForm.get('Phone');
+  }
   get password() {
     return this.DoctorRegisterForm.get('password');
   }
@@ -75,16 +78,26 @@ export class DoctorRegisterComponent {
     if (registerForm.valid) {
       console.log('Form submitted!');
       console.log('DoctorRegisterForm : ', this.DoctorRegisterForm.value);
-
-
       const formData =new FormData();
       formData.append('FullName', registerForm.get("FullName").value);
       formData.append('UserName', registerForm.get("username").value);
       formData.append('Email', registerForm.get("email").value);
       formData.append('Password', registerForm.get("password").value);
       formData.append('ConfirmPassword', registerForm.get("confirmPassword").value);
+      formData.append('Specialization', registerForm.get("Specialization").value);
+      formData.append('Location', registerForm.get("Location").value);
       formData.append('ProfileImage', this.selectedFile,this.selectedFile.name);
       formData.append('SyndicateCarnet', this.selectedFile,this.selectedFile.name);
+
+     
+      const alternativePhones = registerForm.get('aleternativePhones') as FormArray;
+      for (let i = 0; i < alternativePhones.length; i++) {
+        formData.append('contactInfo', alternativePhones.at(i).value);
+      }
+      formData.append('contactInfo', registerForm.get("Phone").value)
+      for (let i = 0; i < alternativePhones.length; i++) {
+      console.log('alternativePhones : ',alternativePhones.value);}
+      
       console.log('formData : ',formData);
     this._registerService.DoctorRegister(formData).subscribe(
       (resp)=>{

@@ -12,7 +12,6 @@ const routes: Routes = [
   
   { path: 'Home',component:HomepageComponent},
   { path: 'showDoctor',component:ShowDoctorsComponent },
-  { path: 'KnowDoctor:/id', component: KnowYourDocComponent }
 ];
 
 @NgModule({

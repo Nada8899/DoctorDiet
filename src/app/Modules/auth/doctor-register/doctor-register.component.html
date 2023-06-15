@@ -182,17 +182,22 @@
   
   
                   <div formArrayName="aleternativePhones" *ngFor="let email of aleternativePhones.controls; let i=index">
-  
-                    <input type="text" [formControlName]="i" style="direction: rtl; " placeholder="رقم التليفون {{i+2}}"
-                      class="form-control text-center" />
-                    <label for="Phone" class="input-group-text">
-                      <i class="fa-solid fa-phone-volume"></i>
-                    </label>
-  
+                    <div class="input-group">
+                    
+                      <input type="text" [formControlName]="i" style="direction: rtl; " placeholder="رقم التليفون {{i+2}}"
+                        class="form-control text-center" />
+
+
+
+                        <label for="Phone" class="input-group-text">
+                          <i class="fa-solid fa-phone-volume fa-lg" style="color:#163A66"></i>
+                        </label>
+                    </div>
                   </div>
+                  
   
-                  <div *ngIf="Location?.errors != null && Location?.touched">
-                    <p *ngIf="Location?.errors?.['required']" class="text-danger">
+                  <div *ngIf="PhoneNumber?.errors != null && PhoneNumber?.touched">
+                    <p *ngIf="PhoneNumber?.errors?.['required']" class="text-danger">
                       برجاء ادخال المكان
                     </p>
                     <p *ngIf="Specialization?.errors?.['minlength']" class="text-danger">
