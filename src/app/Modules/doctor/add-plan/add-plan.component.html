@@ -149,8 +149,8 @@
 
                         <label for="formFile" class="col-sm-2 col-form-label">أضف صورة الوجبة</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="file" id="formFile" (change)=" imageuplud($event)"
-                                formControlName="imgMeal" >
+                            <input class="form-control" type="file" id="formFile" (change)="  previewImage($event); imageuplud($event)"
+                                formControlName="imgMeal">
 
                         </div>
                     </div>
