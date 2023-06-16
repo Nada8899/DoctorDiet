@@ -8,8 +8,8 @@ declare const bsCustomFileInput: any;
   styleUrls: ['./add-meal.component.scss']
 })
 export class AddMealComponent implements OnInit{
-  ngOnInit(): void {
-    bsCustomFileInput.init();
+  ngOnInit(): void {  bsCustomFileInput.init();
+  
   }
   previewImage(event: any) {
     const input = event.target;

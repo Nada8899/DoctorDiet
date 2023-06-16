@@ -3,9 +3,9 @@ import { IDay } from "./IDay"
 
 export interface IPlan{
 
-    Duration :number
+    Duration :number|null
     CaloriesTo :number
     CaloriesFrom :number
-    Days:IDay[]
+    Days:any[]
     Allergics:IAllergics[]
 }

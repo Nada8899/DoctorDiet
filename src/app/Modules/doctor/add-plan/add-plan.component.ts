@@ -1,62 +1,85 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IMeal } from '../Interface/IMeal';
 import { IPlan } from '../Interface/IPlan';
+import bsCustomFileInput from 'bs-custom-file-input';
+import { IDay } from '../Interface/IDay';
+import { DoctorService } from '../Service/doctor.service';
 
 @Component({
   selector: 'app-add-plan',
   templateUrl: './add-plan.component.html',
   styleUrls: ['./add-plan.component.scss']
 })
-export class AddPlanComponent {
-MealList : IMeal[] = [];
-myMeal! : IMeal
-myPlan!:IPlan;
-  constructor(private router: Router, private formBuilder: FormBuilder) { }
+export class AddPlanComponent implements OnInit {
+Meals : any[] = [];
+
+Days:IDay[]=[];
+Day !:IDay
+myMeal! : any
+myPlan:IPlan={
+  Duration: 0,
+  CaloriesTo: 0,
+  CaloriesFrom: 0,
+  Days: [],
+  Allergics: []
+};
+imageSource: string = '';
+  imageDisplay: string = 'none';
+ngOnInit(): void {  bsCustomFileInput.init();
+  
+}
+  constructor(private router: Router, private formBuilder: FormBuilder,private _doctorService :DoctorService ) { }
 
   PlanForm = this.formBuilder.group({
     duration: ['', Validators.required],
-    CaloriesTO: ['', Validators.required],
+    CaloriesTo: ['', Validators.required],
     CaloriesFrom: ['', [Validators.required]],
 
   });
+
   MealForm = this.formBuilder.group({
-    Basic: ['', [Validators.required]],
-    substitute1: ['', [Validators.required]],
-    substitute2: ['', [Validators.required]],
+    categoryID:['',[Validators.required]],
+    description: ['', [Validators.required]],
+    TypeMeal: ['', [Validators.required]],
+  
+    imgMeal:['', [Validators.required]]
   });
 
+  get imgMeal() {
+    return this.PlanForm.get('imgMeal');
+  }
   get duration() {
     return this.PlanForm.get('duration');
   }
+  get categoryID() {
+    return this.PlanForm.get('categoryID');
+  }
   get CaloriesTO() {
-    return this.PlanForm.get('CaloriesTO');
+    return this.PlanForm.get('CaloriesTo');
   }
   get CaloriesFrom() {
     return this.PlanForm.get('CaloriesFrom');
   }
-  get Basic() {
-    return this.PlanForm.get('Basic');
+  get description() {
+    return this.PlanForm.get('description');
   }
-  get substitute1() {
-    return this.PlanForm.get('substitute1');
+  get TypeMeal() {
+    return this.PlanForm.get('TypeMeal');
   }
-  get substitute2() {
-    return this.PlanForm.get('substitute2');
-  }
+
 
 
   ChangeCatigory() {
+
+
     var catogry = document.getElementById("catogry") as HTMLSelectElement;
     const Selectoption = catogry.options[catogry.selectedIndex].text;
 
     var lable1 = document.getElementById("lable1") as HTMLLabelElement;
     lable1.textContent = Selectoption;
-    var lable2 = document.getElementById("lable2") as HTMLLabelElement;
-    lable2.textContent = "البديل 1";
-    var lable3 = document.getElementById("lable3") as HTMLLabelElement;
-    lable3.textContent = "البديل 2";
+  
 
   }
   AddMealToText() {
@@ -64,30 +87,81 @@ myPlan!:IPlan;
     const selectOption = catogry.options[catogry.selectedIndex].text;
     const meals = document.getElementById("AllMeals") as HTMLSelectElement;
     const selectMeal = meals.options[meals.selectedIndex].text;
-    const input3 = this.MealForm.get('substitute2');
-    const input2 = this.MealForm.get('substitute1');
-    const input1 = this.MealForm.get('Basic');
+  
+    const input1 = this.MealForm.get('description');
   
     if (selectOption == "الاساسية") {
-      input1?.setValue(input1.value + selectMeal + "+");
-    } else if (selectOption == "1 البديل") {
-      input2?.setValue(input2.value + selectMeal + '+');
-    } else {
-      input3?.setValue(input3.value + selectMeal + '+');
+      input1?.setValue(input1.value + selectMeal + "+");}
+     else  {
+      input1?.setValue(input1.value + selectMeal + '+');
     }
+ 
   }
   
 
 addPlan(PlanForm:any){
 
+
+this.myPlan.Duration = Number(this.PlanForm.get('duration')?.value);
+
+this.myPlan.CaloriesFrom = Number(this.PlanForm.get('CaloriesFrom')?.value);
+this.myPlan.CaloriesTo = Number(this.PlanForm.get('CaloriesTo')?.value);
+ this.myPlan.Days = this.Days;
+
+console.log(this.myPlan)
+
   console.log(PlanForm.value)
+ this. _doctorService.addPlan(this.myPlan).subscribe({
+  next:data=>console.log(data),
+  error:err=>console.log(err)
+ })
+
 }
 AddMeal(MealForm:any){
  console.log(MealForm.value)
- this.MealList.push(this.myMeal)
- console.log("mealList",MealForm.value)
+ 
+ this.Meals.push(MealForm.value)
+ console.log("mealList",this.Meals)
+
+ MealForm.get('categoryID').reset({ value: 'category', disabled: false });
+ MealForm.get('TypeMeal').reset({ value: 'JLC', disabled: false });
+ MealForm.get('description').reset();
+ MealForm.get('imgMeal').reset();
+
 }
 
-  Meals = ["الاساسية", "1 البديل", "البديل 2"];
+previewImage(event: any) {
+  const input = event.target;
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      const preview = document.getElementById('preview');
+      if (preview) {
+        preview.setAttribute('src', e.target.result);
+        preview.style.display = 'block';
+      }
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+
+
+}
+addDayList(){
+  const newDay: IDay = {
+    Meals: this.Meals,
+    
+  };
+
+  this.Days.push(newDay)
+  console.log("days",this.Days)
+
+}
+imageuplud(file: any) {
+  this.MealForm.patchValue({ imgMeal: file.target.files[0] });
+  console.log("CCC", this.MealForm.controls['imgMeal']);
+  this.previewImage(file);
+}
+
+  MealLists = ["الاساسية", " البديل" ];
   SubMeals = [" فراخ مسلوقه"  , "لحم", "لبن", "فاكهة", "بيض", "أرز","مكرونه","زبادي", "سمك","سلطه","رايب","كرواسون","فراخ مشويه","محشي","لسان عصفور","عصير طبيعي"]
 }
