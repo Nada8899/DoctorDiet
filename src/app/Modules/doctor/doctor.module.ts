@@ -18,6 +18,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 
 
+
 @NgModule({
   declarations: [
  

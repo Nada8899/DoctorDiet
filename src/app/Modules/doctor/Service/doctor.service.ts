@@ -28,5 +28,16 @@ export class DoctorService {
   }
 
 
+  getAllWaitingPatients(Doctorid:any):Observable<any>{
+   return this._http.get(`http://localhost:5268/api/Patient/GetPatientsByDoctorIdWithStatusWaiting?Doctorid=${Doctorid}`)
+  }
+  rejectPatient(waitingPatient:any):Observable<any>
+  {
+    return this._http.put('http://localhost:5268/api/Patient/RejectAccount',waitingPatient);
+  }
+  acceptPatient(waitingPatient:any):Observable<any>
+  {
+    return this._http.put('http://localhost:5268/api/Patient/ConfirmAccount',waitingPatient);
+  }
 
 }

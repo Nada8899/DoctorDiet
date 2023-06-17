@@ -20,7 +20,7 @@ export class PatientFollowUpComponent {
   }
 
   ngOnInit() {
-    this.patient.GetPatientsByDoctorId("0fbcd163-8b38-4dd1-a315-74796b3c2e33").subscribe({
+    this.patient.GetPatientsByDoctorId("455f58ee-d70a-453a-abd7-7577d00684a7").subscribe({
       next:data=>{
         this.PatientList=data
         console.log(data)

@@ -11,6 +11,8 @@ import { PlansComponent } from './plans/plans.component';
 import { TodayMealsComponent } from './today-meals/today-meals.component';
 import { PlanDashComponent } from './plan-dash/plan-dash.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { PatientFollowUpComponent } from './patient-follow-up/patient-follow-up.component';
+import { SubscrebtionComponent } from './subscrebtion/subscrebtion.component';
 
 
 
@@ -29,8 +31,9 @@ const routes: Routes = [
       { path: 'Plans', component: PlansComponent },
       { path: 'TodayMeal', component: TodayMealsComponent },
       { path: "Plan", component: PlanDashComponent },
-      { path: "Welcome", component: WelcomeComponent }
-
+      { path: "Welcome", component: WelcomeComponent },
+      { path: "Patients", component: PatientFollowUpComponent },
+      { path: "Subscrebtion", component: SubscrebtionComponent }
     ]
   },
 ];

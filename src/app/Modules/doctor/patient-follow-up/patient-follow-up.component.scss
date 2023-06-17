@@ -45,3 +45,17 @@
   z-index: 0;
   transform: skewY(3deg);
 }
+.container-fluid{
+
+  height: 640px;
+  overflow: auto;
+}
+
+.container-fluid::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: #F5F5F5;
+}
+
+.container-fluid::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
