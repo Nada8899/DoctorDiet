@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
                   this._router.navigate(['home'])
           }
           else if(this.userRole=='Doctor'){
-            this._router.navigate(['doctor/dash'])
+            this._router.navigate(['doctor/dash/Welcome'])
           }
           else{
             this._router.navigate(['home'])

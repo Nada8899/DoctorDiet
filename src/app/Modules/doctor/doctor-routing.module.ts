@@ -13,6 +13,7 @@ import { PlanDashComponent } from './plan-dash/plan-dash.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PatientFollowUpComponent } from './patient-follow-up/patient-follow-up.component';
 import { SubscrebtionComponent } from './subscrebtion/subscrebtion.component';
+import { PatientDetailsComponent } from './patient-details/patient-details.component';
 
 
 
@@ -33,7 +34,8 @@ const routes: Routes = [
       { path: "Plan", component: PlanDashComponent },
       { path: "Welcome", component: WelcomeComponent },
       { path: "Patients", component: PatientFollowUpComponent },
-      { path: "Subscrebtion", component: SubscrebtionComponent }
+      { path: "Subscrebtion", component: SubscrebtionComponent },
+      {path: "PatienDe",component: PatientDetailsComponent}
     ]
   },
 ];

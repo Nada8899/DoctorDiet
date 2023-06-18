@@ -15,6 +15,7 @@ import { HomeModule } from './Modules/home/home.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient,HttpClientModule } from '@angular/common/http';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { HttpClient,HttpClientModule } from '@angular/common/http';
     RouterLink,
     HttpClientModule,
     BrowserAnimationsModule,
-    
+    ButtonModule,
     TranslateModule.forRoot(
       {
         defaultLanguage:'en',

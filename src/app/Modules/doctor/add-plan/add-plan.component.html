@@ -121,7 +121,7 @@
                 <h2 class="text-center">Meals </h2>
                 <form [formGroup]="MealForm" (ngSubmit)="AddMeal(MealForm)" class="text-center">
 
-                    <div class="col-md-6  mt-3">
+                    <div class="  my-3">
                         <select name="catogry" (change)="ChangeCatigory()" id="catogry" formControlName="categoryID">
 
                             <option selected disabled value="category">التصنيف</option>
@@ -142,19 +142,11 @@
                             <option *ngFor="let item of SubMeals" value="JLC">{{item}}</option>
                         </select>
                     </div>
-                    <div class="ml-2 col-sm-6">
+                    <div class="text-center">
                         <img id="preview" class="img-thumbnail" style="display: none; width:200px ;" >
                     </div>
-                    <div class="form-group row mb-3">
-
-                        <label for="formFile" class="col-sm-2 col-form-label">أضف صورة الوجبة</label>
-                        <div class="col-sm-10">
-                            <input class="form-control" type="file" id="formFile" (change)="  previewImage($event); imageuplud($event)"
-                                formControlName="imgMeal">
-
-                        </div>
-                    </div>
-                    <div class="col-md-6 mt-5 text-center">
+              
+                    <div class="col-md-6 mt-5 m-auto  text-center">
 
 
                         <div class="text-input">
@@ -170,19 +162,29 @@
                             </div>
                         </div>
 
-                        
+                        <div class="form-group mt-4 row mb-3">
+
+                            <label for="formFile" class="col-sm-2 col-form-label">أضف صورة الوجبة</label>
+                            <div class="col-8 ">
+                                <input class="form-control" type="file" id="formFile" (change)="  previewImage($event); imageuplud($event)"
+                                    formControlName="imgMeal">
+    
+                            </div>
+                        </div>
                         <div class="row">
                             <button type="submit" class="btn my-4">
-                               وجبه اضافه
+                               أضافة وجبة
                             </button>
                         </div>
+
                        
                     </div>
+                    
 
 
                 </form> <div class="row">
                     <button type="submit"  class="btn my-4" (click)="addDayList()">
-                       وجبه يوم
+                       أضافة يوم
                     </button>
                 </div>
             </div>

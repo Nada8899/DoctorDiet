@@ -129,7 +129,10 @@ export class AddPlanComponent implements OnInit {
   AddMeal(MealForm: any) {
 
     console.log(MealForm.value)
-
+    const prevew = document.getElementById('preview');
+    if (prevew) {
+      prevew.style.display = 'none';
+    }
     this.myMeal.category = Number(this.MealForm.get('categoryID')?.value);
     this.myMeal.description = this.MealForm.get('description')?.value;
     this.myMeal.type = Number(this.MealForm.get('TypeMeal')?.value);
@@ -152,7 +155,7 @@ export class AddPlanComponent implements OnInit {
         const preview = document.getElementById('preview');
         if (preview) {
           preview.setAttribute('src', e.target.result);
-          preview.style.display = 'block';
+          preview.style.display = 'inline';
         }
       };
       reader.readAsDataURL(input.files[0]);

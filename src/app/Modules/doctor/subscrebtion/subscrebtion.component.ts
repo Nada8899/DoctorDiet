@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../Service/doctor.service';
 import { LoginService } from '../../auth/Services/login.service';
+ 
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./subscrebtion.component.scss']
 })
 export class SubscrebtionComponent implements OnInit{
+
   waitingPatients!:any[];
   DoctorId!:string;
     constructor(private _DoctorService:DoctorService, private _LoginService:LoginService){}
@@ -28,6 +30,7 @@ export class SubscrebtionComponent implements OnInit{
       console.log(this.waitingPatients);
     })
   }
+  
   AcceptPatient(Patientid:string)
   {
 
@@ -76,6 +79,7 @@ export class SubscrebtionComponent implements OnInit{
 
 
   }
+  
 }
 
 
