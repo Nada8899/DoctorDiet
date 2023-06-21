@@ -27,17 +27,22 @@ export class DoctorService {
     return this._http.post<IPlan>(`http://localhost:5268/api/Plan`, data);
   }
 
+  GetDoctorInfo(DoctorID: string): Observable<any> {
 
-  getAllWaitingPatients(Doctorid:any):Observable<any>{
-   return this._http.get(`http://localhost:5268/api/Patient/GetPatientsByDoctorIdWithStatusWaiting?Doctorid=${Doctorid}`)
+    return this._http.get(`http://localhost:5268/api/Doctor/doctorid?doctorid=${DoctorID}`)
   }
-  rejectPatient(waitingPatient:any):Observable<any>
-  {
-    return this._http.put('http://localhost:5268/api/Patient/RejectAccount',waitingPatient);
+  ChangeDoctorPass(userData: object): Observable<any> {
+
+    return this._http.post("http://localhost:5268/api/Doctor/ChangePassowrd", userData)
   }
-  acceptPatient(waitingPatient:any):Observable<any>
-  {
-    return this._http.put('http://localhost:5268/api/Patient/ConfirmAccount',waitingPatient);
+  getAllWaitingPatients(Doctorid: any): Observable<any> {
+    return this._http.get(`http://localhost:5268/api/Patient/GetPatientsByDoctorIdWithStatusWaiting?Doctorid=${Doctorid}`)
+  }
+  rejectPatient(waitingPatient: any): Observable<any> {
+    return this._http.put('http://localhost:5268/api/Patient/RejectAccount', waitingPatient);
+  }
+  acceptPatient(waitingPatient: any): Observable<any> {
+    return this._http.put('http://localhost:5268/api/Patient/ConfirmAccount', waitingPatient);
   }
 
 }

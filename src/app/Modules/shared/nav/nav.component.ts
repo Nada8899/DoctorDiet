@@ -17,8 +17,12 @@ export class NavComponent implements OnInit {
   public isAdmin: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   testToken!: any;
   doctor:string="";
-  patient:string="";
-  constructor(private _LoginService: LoginService, private _Router: Router) { }
+  patient:string=""
+
+  constructor(private _LoginService: LoginService, private _Router: Router) {
+    
+   }
+  
   ngOnInit(): void {
    this.doctor ="/auth/DoctorRegister";
   this.patient="/auth/Register"
@@ -75,15 +79,13 @@ export class NavComponent implements OnInit {
       
   }
 
-
-
-
   Logout() {
     this._LoginService.LogOut();
     this._Router.navigate(['home']);
     
 
   }
+  
 
   selectrouter(event: Event) {
     const selectedRoute = (event.target as HTMLSelectElement).value;

@@ -16,6 +16,7 @@ import { PlanDashComponent } from './plan-dash/plan-dash.component';
 import { TodayMealsComponent } from './today-meals/today-meals.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -34,7 +35,8 @@ import { PatientDetailsComponent } from './patient-details/patient-details.compo
     PlanDashComponent,
     TodayMealsComponent,
     WelcomeComponent,
-    PatientDetailsComponent
+    PatientDetailsComponent,
+    ProfileComponent
   ],
   imports: [
     DoctorRoutingModule,

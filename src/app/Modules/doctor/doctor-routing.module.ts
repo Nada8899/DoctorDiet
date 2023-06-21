@@ -14,6 +14,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { PatientFollowUpComponent } from './patient-follow-up/patient-follow-up.component';
 import { SubscrebtionComponent } from './subscrebtion/subscrebtion.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -22,8 +23,10 @@ const routes: Routes = [
 
 
   { path: 'KnowDoctor/:id', component: KnowYourDocComponent },
+  { path: 'Profile', component: ProfileComponent },
   {
     path: 'dash', component: MainComponent,
+    
     children: [
       { path: 'meals', component: MealsComponent },
       { path: 'AddPlan', component: AddPlanComponent },

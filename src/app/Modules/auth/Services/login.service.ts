@@ -14,6 +14,7 @@ export class LoginService {
   loginUserID: string = '';
   decodedToken: any;
   loginUserRole: string = '';
+  loginUserImg:any =''
   constructor(private _HttpClient: HttpClient,private _Router:Router) { }
 
   Login(formData: object): Observable<any> {
@@ -46,7 +47,6 @@ export class LoginService {
   }
 
   getUserId() {
-
     this.UserDataDecode = this.getToken();
     console.log("USerDataDecode", this.UserDataDecode)
     this.loginUserID = this.UserDataDecode['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier']
@@ -56,11 +56,18 @@ export class LoginService {
   }
 
   getUserRole() {
-
     let encodedUserData = this.getToken();
     console.log(encodedUserData);
     this.loginUserRole = encodedUserData['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
     console.log(this.loginUserRole);
+    return this.loginUserRole;
+  }
+  getUserImg() {
+
+    let encodedUserData = this.getToken();
+    console.log(encodedUserData);
+    this.loginUserImg = encodedUserData['ImgUser'];
+    console.log("img",this.loginUserImg);
     return this.loginUserRole;
   }
 
