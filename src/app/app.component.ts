@@ -10,6 +10,9 @@ export class AppComponent {
   title = 'DoctorDiet';
   currentLang!:string;
   constructor(public translate:TranslateService){
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+
     this.currentLang=localStorage.getItem('currentLang')|| 'en'
     this.translate.use(this.currentLang)
   }

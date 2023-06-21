@@ -19,10 +19,21 @@
   .details-item {
     margin-bottom: 10px;
   }
-
-  .details-label {
+  .details-label{
     display: inline-block;
-    width: 80px;
+    width:  3.5rem;
+    font-weight: bold;
+  }
+
+  .details-label_2{
+    display: inline-block;
+    width: 11.6875rem;
+    font-weight: bold;
+  }
+
+  .details-label_3{
+    display: inline-block;
+    width: 7rem;
     font-weight: bold;
   }
 

@@ -11,6 +11,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class DoctorService {
 
+
   constructor(private _http: HttpClient, private _formBuilder: FormBuilder) { }
 
 
@@ -27,6 +28,22 @@ export class DoctorService {
     return this._http.post<IPlan>(`http://localhost:5268/api/Plan`, data);
   }
 
+  GetDoctorInfo(DoctorID: string): Observable<any> {
 
+    return this._http.get(`http://localhost:5268/api/Doctor/doctorid?doctorid=${DoctorID}`)
+  }
+  ChangeDoctorPass(userData: object): Observable<any> {
+
+    return this._http.post("http://localhost:5268/api/Doctor/ChangePassowrd", userData)
+  }
+  getAllWaitingPatients(Doctorid: any): Observable<any> {
+    return this._http.get(`http://localhost:5268/api/Patient/GetPatientsByDoctorIdWithStatusWaiting?Doctorid=${Doctorid}`)
+  }
+  rejectPatient(waitingPatient: any): Observable<any> {
+    return this._http.put('http://localhost:5268/api/Patient/RejectAccount', waitingPatient);
+  }
+  acceptPatient(waitingPatient: any): Observable<any> {
+    return this._http.put('http://localhost:5268/api/Patient/ConfirmAccount', waitingPatient);
+  }
 
 }

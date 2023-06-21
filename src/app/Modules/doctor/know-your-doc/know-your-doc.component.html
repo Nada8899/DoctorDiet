@@ -7,7 +7,7 @@
       <div class="col-md-8">
         <div class="card-body">
           <p class="card-title mt-3" style="color:#163A66; font-size: 2.0rem; font-weight: bolder; text-align: right;">
-            {{doctor.fullName}} دكتوره </p>
+            {{doctor?.fullName}} دكتوره </p>
           <div class="row">
             <div style="text-align: right; " class="col">
               <i class="fa-sharp fa-solid fa-star " style="color: #f7fb23;"></i>
@@ -23,13 +23,13 @@
 
             <div class="card-text text-end text-md-end" style="color:#163A66; font-size: 1.1rem;">
               <i class="fa-sharp fa-solid fa-stethoscope"></i>
-              <span style="color:#163A66; font-size: 1.5rem;">&nbsp; {{doctor.specialization}}</span>
+              <span style="color:#163A66; font-size: 1.5rem;">&nbsp; {{doctor?.specialization}}</span>
 
             </div>
             <br>
             <div class="card-text text-end text-md-end " style="color:#163A66; font-size: 1.1rem;">
               <i class="fas fa-notes-medical">&nbsp; </i>
-              <span style="color:#163A66; font-size: 1.5rem;">&nbsp; {{doctor.specialization}}</span>
+              <span style="color:#163A66; font-size: 1.5rem;">&nbsp; {{doctor?.specialization}}</span>
             </div>
             <br>
             <div class="card-text text-end text-md-end" style="color:#163A66; font-size: 1.1rem;">

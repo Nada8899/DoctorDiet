@@ -50,7 +50,7 @@ export class LoginService {
     this.UserDataDecode = this.getToken();
     console.log("USerDataDecode", this.UserDataDecode)
     this.loginUserID = this.UserDataDecode['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier']
-    console.log("USerDataDecodeID", this.loginUserID)
+    console.log("USerID", this.loginUserID)
     return this.loginUserID
 
   }

@@ -11,6 +11,7 @@ import { PlansComponent } from './plans/plans.component';
 import { TodayMealsComponent } from './today-meals/today-meals.component';
 import { PlanDashComponent } from './plan-dash/plan-dash.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
 
 
   { path: 'KnowDoctor/:id', component: KnowYourDocComponent },
+  { path: 'Profile', component: ProfileComponent },
   {
     path: 'dash', component: MainComponent,
     children: [

@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { DoctorService } from '../Service/doctor.service';
 import { IDoctor } from '../../shared/Interface/IDoctor';
 import { IConnect } from '../Interface/IConnect';
+import { LoginService } from '../../auth/Services/login.service';
 
 @Component({
   selector: 'app-know-your-doc',
@@ -10,20 +11,20 @@ import { IConnect } from '../Interface/IConnect';
   styleUrls: ['./know-your-doc.component.scss']
 })
 export class KnowYourDocComponent {
-  private _loginService: any;
-
-  constructor(private _activeRoute: ActivatedRoute, private _doctorService: DoctorService) { }
+  constructor(private _activeRoute: ActivatedRoute, private _doctorService: DoctorService, private _loginService: LoginService) { }
   Connect: IConnect = { doctorID: "", patientId: "" }
   appear: boolean = false;
   doctor!: IDoctor
   ngOnInit() {
     this.getDoctor()
+    this._loginService.getUserId()
   }
   change(id: string) {
     console.log(id)
     this.appear = !this.appear;
     this.Connect.doctorID = id;
     this.Connect.patientId = this._loginService.getUserId();
+    console.log(this._loginService.getUserId())
     this._doctorService.Subscribe(this.Connect).subscribe({
       next: data => console.log(data),
       error: err => console.log(err)
@@ -45,6 +46,7 @@ export class KnowYourDocComponent {
       }
     });
   }
+
 
 
 }

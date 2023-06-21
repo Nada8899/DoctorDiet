@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-light fixed-navbar">
   <div class="container-fluid">
-
+    
     <a class="navbar-brand" routerLink="/Home">
       <img loading="lazy" src="assets/logooo.jpg" alt="logo" name="logo" height="100"
         style="border-right:2px solid #0f62c6;">
@@ -18,10 +18,15 @@
           <a class="nav-link active" aria-current="page" routerLink="/doctor/dash" onclick="collapseNavbar()"> لوحة
             التحكم</a>
         </li>
-        <li class="nav-item active" *ngIf="isLoggedIn.value ==1">
+        <li class="nav-item active" *ngIf="isLoggedIn.value ==1 && isPatient.value !=0">
           <a class="nav-link" routerLink="/user/Profile" onclick="collapseNavbar()">
             الملف&nbsp;الشخصي</a>
         </li>
+        <li class="nav-item active" *ngIf="isLoggedIn.value ==1 && isDoctor.value !=0">
+          <a class="nav-link" routerLink="/doctor/Profile" onclick="collapseNavbar()">
+            الملف&nbsp;الشخصي</a>
+        </li>
+        
         <li class="nav-item active" *ngIf="isPatient.value != 0">
           <a class="nav-link" routerLink="/user/Plan" onclick="collapseNavbar()">
             خطتك</a>
@@ -33,7 +38,8 @@
 
         <li class="nav-item active" style="direction: rtl;" *ngIf="isLoggedIn?.value !== 1">
           <select (change)="selectrouter($event)">
-            <!-- <option >{{'Login'|translate}}</option> -->
+          
+            <option>تسجيل </option>
             <option value="/auth/Register">تسجيل مريض</option>
             <option value="/auth/DoctorRegister">تسجيل دكتور</option>
           </select>

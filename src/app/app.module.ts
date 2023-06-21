@@ -11,15 +11,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthRoutingModule } from './Modules/auth/auth-routing.module';
 import { HomeModule } from './Modules/home/home.module';
-
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader, TranslatePipe } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient,HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [
+   
     AppComponent,
-
+    
+  
   ],
   imports: [
     BrowserModule,
@@ -35,17 +39,26 @@ import { HttpClient,HttpClientModule } from '@angular/common/http';
     AuthModule,
     RouterLink,
     HttpClientModule,
+
+
     BrowserAnimationsModule,
     TranslateModule.forRoot(
       {
-        defaultLanguage:'en',
-        loader:{
-          provide:TranslateLoader,
-          useFactory:CreateTranslateLoader,
-          deps:[HttpClient]
+        defaultLanguage: 'en',
+        loader: {
+          provide: TranslateLoader,
+          useFactory: CreateTranslateLoader,
+          deps: [HttpClient]
         }
       }
-    )
+    ), TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+      TranslateModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
@@ -53,6 +66,6 @@ import { HttpClient,HttpClientModule } from '@angular/common/http';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export function CreateTranslateLoader(http:HttpClient){
-  return new TranslateHttpLoader(http,'./assets/i18n/','.json')
+export function CreateTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json')
 }

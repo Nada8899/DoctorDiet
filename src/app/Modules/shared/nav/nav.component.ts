@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../auth/Services/login.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nav',
@@ -17,8 +18,12 @@ export class NavComponent implements OnInit {
   public isAdmin: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   testToken!: any;
   doctor:string="";
-  patient:string="";
-  constructor(private _LoginService: LoginService, private _Router: Router) { }
+  patient:string=""
+
+  constructor(private _LoginService: LoginService, private _Router: Router) {
+    
+   }
+  
   ngOnInit(): void {
    this.doctor ="/auth/DoctorRegister";
   this.patient="/auth/Register"
@@ -75,15 +80,13 @@ export class NavComponent implements OnInit {
       
   }
 
-
-
-
   Logout() {
     this._LoginService.LogOut();
     this._Router.navigate(['home']);
     
 
   }
+  
 
   selectrouter(event: Event) {
     const selectedRoute = (event.target as HTMLSelectElement).value;

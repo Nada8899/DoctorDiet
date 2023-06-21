@@ -1,13 +1,7 @@
 {
-
-    "dir":"ltr",
-    "userinfo":{
-
-"Login":"Login"
-, "LoginAsPatient":" Login As Patient "
-
-
-        
-    }
-
+  "dir": "ltr",
+  "userinfo": {
+    "Login": "Login",
+    "LoginAsPatient": " Login As Patient "
+  }
 }
