@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { DoctorService } from '../Service/doctor.service';
 import { IDoctor } from '../../shared/Interface/IDoctor';
 import { IConnect } from '../Interface/IConnect';
+import { LoginService } from '../../auth/Services/login.service';
 
 @Component({
   selector: 'app-know-your-doc',
@@ -10,9 +11,9 @@ import { IConnect } from '../Interface/IConnect';
   styleUrls: ['./know-your-doc.component.scss']
 })
 export class KnowYourDocComponent {
-  private _loginService: any;
+//  private _loginService: any;
 
-  constructor(private _activeRoute: ActivatedRoute, private _doctorService: DoctorService) { }
+  constructor(private _activeRoute: ActivatedRoute, private _doctorService: DoctorService,private _loginService:LoginService) { }
   Connect: IConnect = { doctorID: "", patientId: "" }
   appear: boolean = false;
   doctor!: IDoctor

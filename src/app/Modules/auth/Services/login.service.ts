@@ -14,7 +14,7 @@ export class LoginService {
   loginUserID: string = '';
   decodedToken: any;
   loginUserRole: string = '';
-  loginUserImg:any =''
+  loginUserIMg:any =''
   constructor(private _HttpClient: HttpClient,private _Router:Router) { }
 
   Login(formData: object): Observable<any> {
@@ -66,9 +66,10 @@ export class LoginService {
 
     let encodedUserData = this.getToken();
     console.log(encodedUserData);
-    this.loginUserImg = encodedUserData['ImgUser'];
-    console.log("img",this.loginUserImg);
-    return this.loginUserRole;
+    this.loginUserIMg = encodedUserData['ImgUser'];
+
+    console.log(this.loginUserIMg);
+    return this.loginUserIMg;
   }
 
   LogOut() {

@@ -94,8 +94,8 @@
                     <div class="card-header mb-3" style="font-weight: bold; font-size: 20px;">خطتك</div>
                     <div class="card-body">
                       <h5 class="card-title mb-4" style="font-weight: 200px; font-size: 17px;">مدة الخطة &nbsp;  {{datas.duration}}</h5>
-                      <h5 class="card-title mb-4" style="font-weight: 200px; font-size: 17px;" *ngFor="let item of this.data?.goal" >الهدف  &nbsp;  {{item.name}}</h5>
-                      <p class="card-text mb-4" style="font-weight: 200px; font-size: 17px;">الدكتور &nbsp; {{DoctorName}} </p>
+                      <h5 class="card-title mb-4" style="font-weight: 200px; font-size: 17px;" >الهدف  &nbsp;  {{data.goal}}</h5>
+                      <p class="card-text mb-4" style="font-weight: 200px; font-size: 17px;">الدكتور &nbsp; {{this.data?.doctorPatientBridge[0].fullName}} </p>
 
                     </div>
                   </div>

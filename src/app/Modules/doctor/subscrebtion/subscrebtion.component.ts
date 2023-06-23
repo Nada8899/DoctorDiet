@@ -31,26 +31,44 @@ export class SubscrebtionComponent implements OnInit{
     })
   }
   
-  AcceptPatient(Patientid:string)
-  {
+  // AcceptPatient(Patientid:string)
+  // {
 
-    let waitingPatient ={
-      "patientId":Patientid,
-        "doctorID": this.DoctorId
+  //   let waitingPatient ={
+  //     "patientId":Patientid,
+  //       "doctorID": this.DoctorId
+  //   }
+  //   console.log(waitingPatient);
+  //   this._DoctorService.acceptPatient(waitingPatient).subscribe((response)=>{
+
+  //     console.log(response);
+  //     console.log("Accepted");
+  //     this.GetAllWaitingPatient();
+
+
+  //   }),
+  //   (error:any)=>{
+
+  //     console.log(error.message);
+  //   }
+
+
+  // }
+  AcceptPatient(Patientid: string) {
+
+    let waitingPatient = {
+      "patientId": Patientid,
+      "doctorID": this.DoctorId
     }
     console.log(waitingPatient);
-    this._DoctorService.acceptPatient(waitingPatient).subscribe((response)=>{
-
-      console.log(response);
-      console.log("Accepted");
-      this.GetAllWaitingPatient();
-
-
-    }),
-    (error:any)=>{
-
-      console.log(error.message);
-    }
+    this._DoctorService.acceptPatient(waitingPatient).subscribe({
+      next: data => {
+        this.GetAllWaitingPatient();
+      },
+      error: err => {
+        console.log(err)
+      }
+    })
 
 
   }

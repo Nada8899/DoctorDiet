@@ -13,7 +13,7 @@ export class ProfileService {
 
   GetPatientInfo(PatientID:string):Observable<any>{
   
-     return this._HttpClient.get(`http://localhost:5268/api/Patient/patientid?patientid=${PatientID}`)
+     return this._HttpClient.get(`http://localhost:5268/api/Patient/patientDataDTO/${PatientID}`)
  }
 
  

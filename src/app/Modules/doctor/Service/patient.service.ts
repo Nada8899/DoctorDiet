@@ -16,7 +16,7 @@ export class PatientService {
    
   }
 
-  GetPatientsByDoctorId(doctorId:any):Observable<any>{
+  GetPatientsByDoctorId(doctorId:string):Observable<any>{
     let params = new HttpParams().set('doctorId', doctorId);
     return this.httpClient.get<any>(`${this.baseurl}/GetPatientsByDoctorIdWithStatusConfirmed`,{params: params}).pipe(catchError((err)=>{
       return throwError(()=>err.message ||"server error");

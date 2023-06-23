@@ -6,6 +6,7 @@ import { IPlan } from '../Interface/IPlan';
 import bsCustomFileInput from 'bs-custom-file-input';
 import { IDay } from '../Interface/IDay';
 import { DoctorService } from '../Service/doctor.service';
+import { LoginService } from '../../auth/Services/login.service';
 
 @Component({
   selector: 'app-add-plan',
@@ -30,7 +31,8 @@ export class AddPlanComponent implements OnInit {
     CaloriesTo: 0,
     CaloriesFrom: 0,
     Days: [],
-    Allergics: []
+    Allergics: [],
+    DoctorId: this._loginSefvice.getUserId(),
   };
   imageSource: string = '';
   imageDisplay: string = 'none';
@@ -38,7 +40,8 @@ export class AddPlanComponent implements OnInit {
     bsCustomFileInput.init();
 
   }
-  constructor(private router: Router, private formBuilder: FormBuilder, private _doctorService: DoctorService) { }
+  constructor(private router: Router, private formBuilder: FormBuilder
+    , private _doctorService: DoctorService, private _loginSefvice: LoginService) { }
 
   PlanForm = this.formBuilder.group({
     duration: ['', Validators.required],

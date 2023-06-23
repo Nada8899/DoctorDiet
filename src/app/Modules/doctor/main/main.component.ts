@@ -9,13 +9,14 @@ import { LoginService } from '../../auth/Services/login.service';
 export class MainComponent {
 
   userName:String | undefined;
-  imgUser: string;
+  decodedImage: any;
+
+
 
   constructor (private loginservice:LoginService){
-
+    this.decodedImage = this.loginservice.getUserImg()
   this.userName=  loginservice.getUserName();
-  this.imgUser=loginservice.getUserImg()
-  console.log("rdctfvygbhjnkm",this.imgUser)
+  console.log("rdctfvygbhjnkm",this.decodedImage)
   }
 
 }

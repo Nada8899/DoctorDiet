@@ -8,4 +8,5 @@ export interface IPlan{
     CaloriesFrom :number
     Days:any[]
     Allergics:IAllergics[]
+    DoctorId:string
 }

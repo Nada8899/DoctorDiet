@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, catchError, throwError } from 'rxjs';
 import { IPatient } from '../Interface/IPatient';
 import { PatientService } from '../Service/patient.service';
+import { LoginService } from '../../auth/Services/login.service';
 
 @Component({
   selector: 'app-patient-follow-up',
@@ -13,14 +14,15 @@ import { PatientService } from '../Service/patient.service';
 export class PatientFollowUpComponent {
   PatientList:IPatient[]=[]
   errorMessage:string=""
+  DoctorId:string=this._loginSefvice.getUserId();
 
 
-  constructor(private patient:PatientService,private router:Router){
+  constructor(private patient:PatientService,private router:Router, private _loginSefvice: LoginService){
     
   }
 
   ngOnInit() {
-    this.patient.GetPatientsByDoctorId("455f58ee-d70a-453a-abd7-7577d00684a7").subscribe({
+    this.patient.GetPatientsByDoctorId(this.DoctorId).subscribe({
       next:data=>{
         this.PatientList=data
         console.log(data)
