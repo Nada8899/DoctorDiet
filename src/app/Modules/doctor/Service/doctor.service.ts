@@ -45,4 +45,15 @@ export class DoctorService {
     return this._http.put('http://localhost:5268/api/Patient/ConfirmAccount', waitingPatient);
   }
 
+GetDoctorPlans(doctorid:string):Observable<any>{
+
+  return this._http.get(`http://localhost:5268/api/Plan/GetAllPlansByDoctotId?doctorID=${doctorid}`)
+}
+
+GetDaysByplanID(planID:number){
+
+
+  return this._http.get(`http://localhost:5268/api/Plan/GetDaysByPlanId?planId=${planID}`)
+}
+
 }

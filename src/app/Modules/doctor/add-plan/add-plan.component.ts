@@ -123,7 +123,10 @@ export class AddPlanComponent implements OnInit {
 
     console.log(PlanForm.value)
     this._doctorService.addPlan(this.myPlan).subscribe({
-      next: data => console.log(data),
+      next: data => { console.log(data)
+      this.router.navigate(['doctor/dash/Plans'])
+    }
+      ,
       error: err => console.log(err)
     })
 
@@ -145,7 +148,7 @@ export class AddPlanComponent implements OnInit {
 
     MealForm.get('categoryID').reset({ value: 'category', disabled: false });
     MealForm.get('TypeMeal').reset({ value: 'JLC', disabled: false });
-    MealForm.get('description').reset();
+    MealForm.get('description').reset('');
     MealForm.get('imgMeal').reset();
 
   }
