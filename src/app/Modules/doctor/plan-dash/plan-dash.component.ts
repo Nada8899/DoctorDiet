@@ -12,8 +12,8 @@ data:any
 planId !:any
 
  constructor(private doctorService:DoctorService,private _ActivatedRoute:ActivatedRoute)  {
- 
   
+
  }
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe(params => {
@@ -23,7 +23,7 @@ planId !:any
         console.log(this.data)
       });
     });
- 
+
   }
 
   numbers: number[] = Array.from({ length: 90 }, (_, index) => index + 1);

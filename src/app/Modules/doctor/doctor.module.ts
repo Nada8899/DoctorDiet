@@ -17,6 +17,7 @@ import { TodayMealsComponent } from './today-meals/today-meals.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { ProfileComponent } from './profile/profile.component';
+import { NotesComponent } from './notes/notes.component';
 
 
 
@@ -36,7 +37,8 @@ import { ProfileComponent } from './profile/profile.component';
     TodayMealsComponent,
     WelcomeComponent,
     PatientDetailsComponent,
-    ProfileComponent
+    ProfileComponent,
+    NotesComponent
   ],
   imports: [
     DoctorRoutingModule,
