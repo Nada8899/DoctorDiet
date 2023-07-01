@@ -28,6 +28,7 @@ export class UserService {
   {
     return this.httpClient.get(`http://localhost:5268/api/CustomPlan/GetDayCustomPlan?customPlanId=${customPlanId}`)
   }
+<<<<<<< HEAD
   GetIFPatientInSubscription(userID:string):Observable<any>
   {
     return this.httpClient.get(`http://localhost:5268/api/Patient/GetIFPatientInSubscription/${userID}`)
@@ -37,4 +38,6 @@ export class UserService {
   {
     return this.httpClient.get<string>(`http://localhost:5268/api/Doctor/GetDocIdWithStatusConfirmedByPatientId/${PatientId}`);
   }
+=======
+>>>>>>> 9cbb9f7f13cb6ba9a9c469d0b95d9c34e2a20fa6
 }

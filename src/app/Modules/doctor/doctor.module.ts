@@ -17,9 +17,14 @@ import { TodayMealsComponent } from './today-meals/today-meals.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { ProfileComponent } from './profile/profile.component';
+<<<<<<< HEAD
 import { EditCustomPlanComponent } from './edit-custom-plan/edit-custom-plan.component';
 import { CustomPlanDayComponent } from './custom-plan-day/custom-plan-day.component';
 import { CustomPlanDayMealsComponent } from './custom-plan-day-meals/custom-plan-day-meals.component';
+=======
+import { NotesComponent } from './notes/notes.component';
+
+>>>>>>> 9cbb9f7f13cb6ba9a9c469d0b95d9c34e2a20fa6
 
 
 @NgModule({
@@ -39,10 +44,14 @@ import { CustomPlanDayMealsComponent } from './custom-plan-day-meals/custom-plan
     WelcomeComponent,
     PatientDetailsComponent,
     ProfileComponent,
+<<<<<<< HEAD
     EditCustomPlanComponent,
     CustomPlanDayComponent,
     CustomPlanDayMealsComponent,
  
+=======
+    NotesComponent
+>>>>>>> 9cbb9f7f13cb6ba9a9c469d0b95d9c34e2a20fa6
   ],
   imports: [
     DoctorRoutingModule,

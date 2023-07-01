@@ -37,6 +37,10 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9cbb9f7f13cb6ba9a9c469d0b95d9c34e2a20fa6
 
 
             <h1 *ngIf="ISlunch">
@@ -63,8 +67,12 @@
                   </div>
               </div>
           </div>
+<<<<<<< HEAD
 
             <h1  *ngIf="ISdinner">
+=======
+            <h1>
+>>>>>>> 9cbb9f7f13cb6ba9a9c469d0b95d9c34e2a20fa6
                 <span>   <input type="checkbox" name="lose" id="lose-checkbox">
                     <label for="lose-checkbox">العشاء</label></span>
             </h1>
@@ -87,6 +95,7 @@
                   </div>
               </div>
           </div>
+<<<<<<< HEAD
             <h1 *ngIf="ISsnaks">
                 <span>   <input type="checkbox" name="lose" id="lose-checkbox">
                     <label for="lose-checkbox">سناكس</label></span>
@@ -133,6 +142,8 @@
                   </div>
               </div>
           </div>
+=======
+>>>>>>> 9cbb9f7f13cb6ba9a9c469d0b95d9c34e2a20fa6
         </div>
     </div>
 </section>
@@ -155,6 +166,7 @@
       <form [formGroup]="patientNoteDataForm" (ngSubmit)="onSubmitPatientNoteData()">
         <div class="panel">
             <div class="panel-body">
+<<<<<<< HEAD
                 <textarea class="form-control notebody m-3" formControlName="text" style="text-align: end;" rows="2"
                     placeholder=" اكتب ملاحظتك هنا ليراها طبيبك">
                   </textarea>
@@ -166,6 +178,13 @@
                 <div class="mar-top clearfix" style="text-align: end;">
                   <button class="btn btn-sm  blue pull-right" (click)="AddPatientNote()" type="submit"><i class="fa fa-pencil fa-fw"></i>
                     تم</button>
+=======
+                <textarea class="form-control notebody m-3" style="text-align: end;" rows="2"
+                    placeholder=" اكتب ملاحظتك هنا ليراها طبيبك"></textarea>
+                <div class="mar-top clearfix" style="text-align: end;">
+                    <button class="btn btn-sm  blue pull-right" (click)="addnote()" type="submit"><i class="fa fa-pencil fa-fw"></i>
+                        تم</button>
+>>>>>>> 9cbb9f7f13cb6ba9a9c469d0b95d9c34e2a20fa6
                 </div>
             </div>
             <div *ngIf="showDone"  class="confirmation-box">
@@ -178,6 +197,7 @@
         </form>
     </div>
 </div>
+<<<<<<< HEAD
 
 </div>
 <div *ngSwitchCase="'NotConfirmed'" class="m-5">
@@ -205,3 +225,5 @@
 
 
 
+=======
+>>>>>>> 9cbb9f7f13cb6ba9a9c469d0b95d9c34e2a20fa6
