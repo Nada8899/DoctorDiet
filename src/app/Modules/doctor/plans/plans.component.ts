@@ -19,7 +19,6 @@ data!:any[]
     this.doctorID=this._loginService.getUserId();
      this._doctorService.GetDoctorPlans(this.doctorID).subscribe((resp)=>{
       this.data=resp
-         console.log("doctor plans",this.data)
     })
   }
 

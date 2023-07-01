@@ -17,25 +17,16 @@ export class AddPlanComponent implements OnInit {
   Meals: any[] = [];
   Days: IDay[] = [];
   Day !: IDay
-  myMeal: IMeal = {
-    description: '',
-    image: undefined,
-    category: 0,
-    type: 0
-  };
-
-
-
+  myMealImage: any ;
   myPlan: IPlan = {
     Duration: 0,
     CaloriesTo: 0,
     CaloriesFrom: 0,
     Days: [],
     Allergics: [],
-    DoctorId: this._loginSefvice.getUserId(),
+    doctorId: this._loginSefvice.getUserId(),
   };
-  imageSource: string = '';
-  imageDisplay: string = 'none';
+
   ngOnInit(): void {
     bsCustomFileInput.init();
 
@@ -51,10 +42,9 @@ export class AddPlanComponent implements OnInit {
   });
 
   MealForm = this.formBuilder.group({
-    categoryID: ['', [Validators.required]],
+    categoryID: ['categoryID', [Validators.required]],
     description: ['', [Validators.required]],
-    TypeMeal: ['', [Validators.required]],
-
+    TypeMeal: ['TypeMeal', [Validators.required]],
     imgMeal: ['', [Validators.required]]
   });
 
@@ -81,15 +71,10 @@ export class AddPlanComponent implements OnInit {
   }
 
   ChangeCatigory() {
-
-
     var catogry = document.getElementById("catogry") as HTMLSelectElement;
     const Selectoption = catogry.options[catogry.selectedIndex].text;
-
     var lable1 = document.getElementById("lable1") as HTMLLabelElement;
     lable1.textContent = Selectoption;
-
-
   }
   AddMealToText() {
     const catogry = document.getElementById("Meals") as HTMLSelectElement;
@@ -108,20 +93,14 @@ export class AddPlanComponent implements OnInit {
 
   }
 
-
   addPlan(PlanForm: any) {
-
-
-
+    this.myPlan.doctorId =   this._loginSefvice.getUserId()
     this.myPlan.Duration = Number(this.PlanForm.get('duration')?.value);
-
     this.myPlan.CaloriesFrom = Number(this.PlanForm.get('CaloriesFrom')?.value);
     this.myPlan.CaloriesTo = Number(this.PlanForm.get('CaloriesTo')?.value);
     this.myPlan.Days = this.Days;
 
-    console.log(this.myPlan)
-
-    console.log(PlanForm.value)
+  
     this._doctorService.addPlan(this.myPlan).subscribe({
       next: data => { console.log(data)
       this.router.navigate(['doctor/dash/Plans'])
@@ -133,17 +112,25 @@ export class AddPlanComponent implements OnInit {
 
   }
   AddMeal(MealForm: any) {
-
-    console.log(MealForm.value)
+    let myMeal: IMeal = {
+      Description: '',
+      image: undefined,
+      category: 0,
+      type: 0
+    };
+  
     const prevew = document.getElementById('preview');
     if (prevew) {
       prevew.style.display = 'none';
     }
-    this.myMeal.category = Number(this.MealForm.get('categoryID')?.value);
-    this.myMeal.description = this.MealForm.get('description')?.value;
-    this.myMeal.type = Number(this.MealForm.get('TypeMeal')?.value);
-
-    this.Meals.push(this.myMeal)
+    myMeal.category = Number(this.MealForm.get('categoryID')?.value);
+    myMeal.Description = this.MealForm.get('description')?.value;
+    myMeal.type = Number(this.MealForm.get('TypeMeal')?.value);
+    let img = this.myMealImage
+    myMeal.image = img;
+    console.log("mealList", this.Meals);
+   
+    this.Meals.push(myMeal)
     console.log("mealList", this.Meals)
 
     MealForm.get('categoryID').reset({ value: 'category', disabled: false });
@@ -170,54 +157,24 @@ export class AddPlanComponent implements OnInit {
 
   }
   addDayList() {
-    const newDay: IDay = {
+      const newDay: IDay = {
       Meals: this.Meals,
-
     };
 
     this.Days.push(newDay)
-    console.log("days", this.Days)
+    this.Meals=[]
 
   }
   imageuplud(event: any) {
-    //this.myMeal.image = event.target.files[0];
-
-    // console.log("CCC", this.myMeal.image);
-
     const reader = new FileReader();
     reader.onloadend = () => {
-      const base64Data = reader.result?.toString().split(',')[1]; // Extract the base64 string
-      this.myMeal.image = base64Data;
-
+      const base64Data = reader.result?.toString().split(',')[1]; 
+     this.myMealImage = base64Data;
     };
     reader.readAsDataURL(event.target.files[0]);
-
-    // Send the mealData to the API using HttpClient
-
   }
 
-
-
-
-  // imageuplud(event: any) {
-  //   const file = event.target.files[0];
-  //   console.log("Selected File:", file);
-
-  //   const reader = new FileReader();
-  //   reader.onload = () => {
-  //     const arrayBuffer = reader.result as ArrayBuffer;
-  //     const byteArray = new Uint8Array(arrayBuffer);
-  //     console.log("Byte Array:", byteArray);
-
-  //     // Assign the byte array to your 'myMeal.Image' property
-  //     this.myMeal.image = new Uint8Array(byteArray);
-  //     console.log("Updated Image:",  new Uint8Array(byteArray));
-  //   };
-
-  //   if (file) {
-  //     reader.readAsArrayBuffer(file);
-  //   }
-  // }
   MealLists = ["الاساسية", " البديل"];
-  SubMeals = [" فراخ مسلوقه", "لحم", "لبن", "فاكهة", "بيض", "أرز", "مكرونه", "زبادي", "سمك", "سلطه", "رايب", "كرواسون", "فراخ مشويه", "محشي", "لسان عصفور", "عصير طبيعي"]
+  SubMeals = [" فراخ مسلوقه", "لحم", "لبن", "فاكهة", "بيض", "أرز", "مكرونه", "زبادي", "سمك", "سلطه", "رايب", "كرواسون", "فراخ مشويه", 
+  "محشي", "لسان عصفور", "عصير طبيعي"]
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HomepageComponent } from '../homepage/homepage.component';
 import { HomeServicesService } from '../home-services.service';
 import { IDoctor } from '../../shared/Interface/IDoctor'
 import { Router } from '@angular/router';
@@ -23,7 +22,7 @@ export class ShowDoctorsComponent {
   getDoctors() {
     this.homeService.getAllDoctors().subscribe({
       next: data => {
-        console.log(data);
+        
         this.doctors = data;
 
       },

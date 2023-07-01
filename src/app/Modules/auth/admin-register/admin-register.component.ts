@@ -53,10 +53,6 @@ export class AdminRegisterComponent {
 
     console.log('RegisterForm : ',registerForm.value);
     if (registerForm.valid) {
-      console.log('Form submitted!');
-      console.log('AdminRegisterForm : ', this.AdminRegisterForm.value);
-
-
       const formData =new FormData();
       formData.append('FullName', registerForm.get("FullName").value);
       formData.append('UserName', registerForm.get("username").value);
@@ -75,7 +71,7 @@ export class AdminRegisterComponent {
 
   onSelectFile(fileInput: any) {
     this.selectedFile = <File>fileInput.target.files[0];
-    console.log(this.selectedFile)
+ 
     const dataTransfer = new ClipboardEvent('').clipboardData || new DataTransfer();
     dataTransfer.items.add(new File(['my-file'], 'new-file-name'));
     const inputElement: HTMLInputElement = document.getElementById('formFile') as HTMLInputElement

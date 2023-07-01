@@ -41,7 +41,7 @@ export class RegisterComponent {
       }
     ),
 
-    NoEat: this.formBuilder.group(
+    allergics: this.formBuilder.group(
       {
         Fish: [false,],
         Meat: [false,],
@@ -110,11 +110,10 @@ export class RegisterComponent {
   }
 
   onSubmit(RegistrationForm: any) {
-      console.log(RegistrationForm.value)
+    
      
       if (this.RegistrationForm.valid) {
-      console.log('Form submitted!');
-      console.log('Selected options:', this.RegistrationForm.value);
+   
       const formData =new FormData();
       formData.append('FullName', RegistrationForm.get("fullName").value);
       formData.append('UserName', RegistrationForm.get("userName").value);
@@ -132,30 +131,29 @@ export class RegisterComponent {
       const goalGroup = RegistrationForm.get('Goal') as FormGroup;
       for (const controlName in goalGroup.controls) {
         if (goalGroup.controls[controlName].value) {
-          console.log(controlName)
+        
           formData.append('Goal', controlName);
         }
       }
       
-      // Append selected values from NoEat group
-      const noEatGroup = RegistrationForm.get('NoEat') as FormGroup;
-      for (const controlName in noEatGroup.controls) {
-        if (noEatGroup.controls[controlName].value) {
-          console.log(controlName)
+      
+      const allergics = RegistrationForm.get('allergics') as FormGroup;
+      for (const controlName in allergics.controls) {
+        if (allergics.controls[controlName].value) {
+        
           formData.append('noEats', controlName);
         }
       }
-      
-      // Append selected values from activityRate group
+   
       const activityRateGroup = RegistrationForm.get('activityRate') as FormGroup;
       for (const controlName in activityRateGroup.controls) {
         if (activityRateGroup.controls[controlName].value) {
-          console.log(controlName)
+       
           formData.append('ActivityRates', controlName);
         }
       }
       
-      console.log('formData : ',formData);
+    
 
       this._registerService.PatientRegitser(formData).subscribe(
         (response) => {
@@ -176,8 +174,7 @@ export class RegisterComponent {
 
          } else {
       alert('بيناتك غير صحيحه !')
-      console.log('Please check at least one option.');
-      console.log('Selected options:', this.RegistrationForm.value)
+   
     }
   }
 

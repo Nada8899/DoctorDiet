@@ -14,10 +14,7 @@ export function ConfirmPassVali(control: AbstractControl) {
          : null;
    }
 
-   // if (pass?.value !== Confpass?.value) {
-   //   return { 'MisMatch': true };
-   // }
-   // return null;     
+    
 }
 export function ConfirmPassVaildators(control:AbstractControl)
 {

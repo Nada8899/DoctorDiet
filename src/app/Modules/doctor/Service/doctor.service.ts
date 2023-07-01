@@ -27,10 +27,7 @@ export class DoctorService {
     return this._http.post<IPlan>(`http://localhost:5268/api/Plan`, data);
   }
 
-  GetDoctorInfo(DoctorID: string): Observable<any> {
-
-    return this._http.get(`http://localhost:5268/api/Doctor/doctorid?doctorid=${DoctorID}`)
-  }
+  
   ChangeDoctorPass(userData: object): Observable<any> {
 
     return this._http.post("http://localhost:5268/api/Doctor/ChangePassowrd", userData)
@@ -45,15 +42,48 @@ export class DoctorService {
     return this._http.put('http://localhost:5268/api/Patient/ConfirmAccount', waitingPatient);
   }
 
-GetDoctorPlans(doctorid:string):Observable<any>{
+  GetDoctorPlans(doctorid: string): Observable<any> {
 
-  return this._http.get(`http://localhost:5268/api/Plan/GetAllPlansByDoctotId?doctorID=${doctorid}`)
-}
+    return this._http.get(`http://localhost:5268/api/Plan/GetAllPlansByDoctotId?doctorID=${doctorid}`)
+  }
 
-GetDaysByplanID(planID:number){
+  GetDaysByplanID(planID: number) {
 
 
-  return this._http.get(`http://localhost:5268/api/Plan/GetDaysByPlanId?planId=${planID}`)
-}
+    return this._http.get(`http://localhost:5268/api/Plan/GetDaysByPlanId?planId=${planID}`)
+  }
+  GetMealByDayID(dayId: number) {
 
+
+    return this._http.get(`http://localhost:5268/api/Plan/GetMealsByDayId?dayId=${dayId}`)
+  }
+  EditCustomMeal(editMealForm: any) {
+    console.log(editMealForm)
+    return this._http.put("http://localhost:5268/api/CustomPlan/UpdateCustomMeal", editMealForm)
+  }
+  GetMealById(id: number) {
+    return this._http.get(`http://localhost:5268/api/Plan/GetMealById${id}`)
+  }
+  GetCustomMealById(id: number) {
+    return this._http.get(`http://localhost:5268/api/CustomPlan/GetMealCustomPlanByCusDayId/${id}`)
+  }
+
+  EditMeal(editMealForm: any) {
+    console.log(editMealForm)
+
+    return this._http.put("http://localhost:5268/api/Plan/UpdateMeal", editMealForm)
+  }
+
+  EditProfile(editUserForm: any): Observable<any> {
+    console.log(editUserForm)
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const options = { headers: headers };
+    return this._http.put("http://localhost:5268/api/Doctor/EditDoctorData", editUserForm, options)
+  }
+
+  GetDoctorImg(userId: any): Observable<any> {
+
+
+    return this._http.get(`http://localhost:5268/api/Doctor/GetDoctorImg?doctorid=${userId}` )
+  }
 }

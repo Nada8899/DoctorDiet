@@ -3,6 +3,9 @@ body {
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }
+.container{
+  width: 97%
+}
 #loginBtn {
   
   background: #163A66;
@@ -73,7 +76,8 @@ select option {
   color: #333;
   padding: 8px;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1067px) {
+
   .navbar {
     height: auto; 
   }
@@ -87,20 +91,19 @@ select option {
     font-size: 12px; 
     padding: 0.2rem 0.5rem; 
   }
-}
-.stop {
-  margin-left: 25%;  
+  .nav-item{
+
+    width: max-content;
   }
+}
+.stop{
+  justify-content: end;
+}
 .stop1 {
   margin-left: 38%;  
   }
   @media screen and (max-width: 767px) {
-    .stop {
-    margin-left: 0px;  
-    }
-    .stop1{
-      margin-left: 0px;
-    }
+ 
   }
   .fixed-navbar {
     position: fixed;

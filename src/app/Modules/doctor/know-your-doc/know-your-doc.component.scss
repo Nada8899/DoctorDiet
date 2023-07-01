@@ -2,16 +2,16 @@ body{
     overflow-x: hidden;
     color:#163A66;
   }
-  
- 
+
+
     div.content {
-  
+
     margin-top: 5px;
     padding: 1px 16px;
     flex: 1;
- 
+
   }
-  
+
   .Header{
     display: flex;
     justify-content: space-between;
@@ -24,22 +24,22 @@ body{
       padding-bottom:1rem;
     margin-top: 3rem;
   }
- 
 
-  
+
+
   .card
   {
       border-radius: 25px;
-  
+
   }
-  
+
   .card img
   {
       border-top-left-radius: 25px;
       border-top-right-radius: 25px;
   }
-  
-  
+
+
   #loginBtn {
     background: #163A66;
     background: linear-gradient(to left, #3680da 50%, #005CB8 50%) right;
@@ -59,4 +59,9 @@ body{
   .bC{
 
     border: 1px solid #005CB8;
+  }
+  .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    
   }

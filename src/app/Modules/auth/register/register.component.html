@@ -245,7 +245,7 @@
 
                   </div>
 
-                  <div formGroupName="NoEat">
+                  <div formGroupName="allergics">
 
                     <input type="checkbox" id="NoThing" formControlName="NoThing">
                     <label for="NoThing"><span> لا يوجد </span></label>
@@ -376,7 +376,7 @@
 
                   <div *ngIf="confirmPassword?.errors !=null && confirmPassword?.touched" class="mt-2">
 
-                    <p *ngIf="confirmPassword?.errors?.['required']">برجاء إدخال تأكيد كلمة السر</p>
+                    <p *ngIf="confirmPassword?.errors?.['required']" class="text-danger">برجاء إدخال تأكيد كلمة السر</p>
                   </div>
                 </div>
 

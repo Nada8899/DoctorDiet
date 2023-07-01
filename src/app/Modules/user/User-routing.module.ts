@@ -9,7 +9,7 @@ const routes: Routes = [
  
   { path: 'Plan',component:PlanComponent},
   { path: 'Profile',component:ProfileComponent },
- 
+  
 ];
 
 @NgModule({

@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class NavComponent implements OnInit {
   isLoggedIn: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-
+   UserRole:any
   isLogin: boolean = false;
   public isPatient: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   public isDoctor: BehaviorSubject<number> = new BehaviorSubject<number>(0);
@@ -26,20 +26,20 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
    this.doctor ="/auth/DoctorRegister";
   this.patient="/auth/Register"
-  console.log(this.doctor)
+  this.UserRole=this._LoginService.getUserRole()
     const userToken: string | null = localStorage.getItem('userToken');
 
     if (userToken !== null && userToken !== 'null') {
       this.isLoggedIn.next(1);
-      this._LoginService.saveUserData() // Set the user token in the service
+      this._LoginService.saveUserData() 
     } else {
       this.isLoggedIn.next(0);
-      this._LoginService.userData.next(null); // Clear the user token in the service
+      this._LoginService.userData.next(null); 
     }
-           console.log("Length",localStorage.length )
+          
     
       this.testToken = JSON.stringify(localStorage.getItem('userToken'));
-           console.log("testtoken",this.testToken )
+           
       
       this._LoginService.userData.subscribe(() => {
 
@@ -55,20 +55,20 @@ export class NavComponent implements OnInit {
           this.isAdmin.next(0);
 
         }
-        if (this._LoginService.getUserRole() == "Patient") {
+        if (this.UserRole == "Patient") {
           this.isPatient.next(1);
         }
         else {
           this.isPatient.next(0);
         }
-        if (this._LoginService.getUserRole() == "Doctor") {
+        if (this.UserRole == "Doctor") {
           this.isDoctor.next(1);
         }
         else {
           this.isDoctor.next(0);
         }
 
-        if (this._LoginService.getUserRole() == "Admin") {
+        if (this.UserRole == "Admin") {
           this.isAdmin.next(1);
         }
         else {

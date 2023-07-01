@@ -8,23 +8,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./plan-dash.component.scss']
 })
 export class PlanDashComponent implements OnInit {
-data:any
-planId !:any
+ data:any
+ planId !:any
 
- constructor(private doctorService:DoctorService,private _ActivatedRoute:ActivatedRoute)  {
- 
-  
- }
+ constructor(private doctorService:DoctorService,private _ActivatedRoute:ActivatedRoute)  { }
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe(params => {
       this.planId = params.get('id');
       this.doctorService.GetDaysByplanID(this.planId).subscribe(Response => {
-        this.data = Response;
-        console.log(this.data)
-      });
-    });
- 
-  }
+        this.data = Response;});});}
 
-  numbers: number[] = Array.from({ length: 90 }, (_, index) => index + 1);
+
 }
